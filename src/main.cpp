@@ -1,6 +1,8 @@
 #include "Table.h"
 #include "Structs.h"
 
+#include "q.h"
+
 void myTest1() {
     // 使用MyStruct作为模板参数来创建Table类的实例
     Table<MyStruct> myTable;
@@ -79,35 +81,20 @@ void myTest4() {
         std::cout << row.C_CUSTKEY << "\t" << row.C_NAME << "\t" << row.C_ADDRESS << "\t" << row.C_NATIONKEY << "\t" << row.C_PHONE << "\t" << row.C_ACCTBAL << "\t" << row.C_MKTSEGMENT << "\t" << row.C_COMMENT << std::endl;
     }
 }
-
-//Index 测试
-// void myTest5() {
-
-//     Table<Nation> nationTable;
-//     nationTable.setColumnNames({"N_NATIONKEY", "N_NAME", "N_REGIONKEY", "N_COMMENT"});
-//     nationTable.importData("nation.tbl");
-//     const auto& data = nationTable.getData();
-//     const auto& columnNames = nationTable.getColumnNames();
-
-//     std::unordered_map<int, Nation> dataMap;
-//     std::unordered_map<int, int> buildIndex('N_NATIONKEY');
-//     for (int i = 0; i < buildIndex.size(); i++) {
-//         std::cout << dataMap.key_eq(i) << endl;
-//     }
-
-
 // }
 
 int main() {
-    myTest1();
-    std::cout << "----------------" << std::endl;
-    myTest2();
-    std::cout << "----------------" << std::endl;
-    myTest3();
-    std::cout << "----------------" << std::endl;
-    myTest4();
-    std::cout << "----------------" << std::endl;
+    // myTest1();
+    // std::cout << "----------------" << std::endl;
+    // myTest2();
+    // std::cout << "----------------" << std::endl;
+    // myTest3();
+    // std::cout << "----------------" << std::endl;
+    // myTest4();
+    // std::cout << "----------------" << std::endl;
     // myTest5();
+
+    q1();
 
     return 0;
 }

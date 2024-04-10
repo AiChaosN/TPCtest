@@ -2,13 +2,13 @@
 CXX = g++
 
 # 定义编译器标志
-CXXFLAGS = -Wall -std=c++11
+CXXFLAGS = -Wall -std=c++20
 
 # 定义目标可执行文件
 TARGET = demo
 
 # 定义源文件
-SRCS = main.cpp Table.cpp Structs.cpp
+SRCS = main.cpp Table.cpp Structs.cpp q1.cpp
 
 # 默认目标
 all: $(TARGET)
