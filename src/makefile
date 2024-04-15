@@ -8,7 +8,7 @@ CXXFLAGS = -Wall -std=c++20
 TARGET = demo
 
 # 定义源文件
-SRCS = main.cpp Table.cpp Structs.cpp q1.cpp
+SRCS = main.cpp Table.cpp Structs.cpp q*.cpp
 
 # 默认目标
 all: $(TARGET)

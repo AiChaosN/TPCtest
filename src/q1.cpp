@@ -6,7 +6,7 @@
 #include "Structs.h"
 #include "q.h"
 
-#include <Tool.h>
+#include "Tool.h"
 
 
 void q1() {
@@ -68,8 +68,12 @@ void q1() {
 
     //order by
     std::sort(results.begin(), results.end(), [](const auto& a, const auto& b) {
-        return std::get<0>(a) < std::get<0>(b) || (std::get<0>(a) == std::get<0>(b) && std::get<1>(a) < std::get<1>(b));
+        if (std::get<0>(a) != std::get<0>(b)) {
+            return std::get<0>(a) < std::get<0>(b); // 第一个字符升序
+        }
+        return std::get<1>(a) < std::get<1>(b); // 第二个字符升序，只在第一个字符相同的情况下比较
     });
+
 
     //打印results是啥类型
     std::cout << "数据类型:\t" <<  typeName<decltype(results)>() << std::endl;
