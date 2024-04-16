@@ -10,7 +10,7 @@
 #include "Tool.h"
 
 void q5() {
-    // 初始化和数据导入
+    // init
     Table<Customer> customerTable;
     Table<Orders> ordersTable;
     Table<LineItem> lineItemTable;
@@ -18,7 +18,7 @@ void q5() {
     Table<Nation> nationTable;
     Table<Region> regionTable;
 
-    // 数据导入，假设路径正确
+    // import
     customerTable.importData("../data/customer.tbl");
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
@@ -76,7 +76,7 @@ void q5() {
 
     std::map<std::string, AggregateResults> aggregates;
 
-    // 进行多表连接与聚合计算
+    // where
     for (auto& s : suppliers) {
         if (regionMap.count(nationMap[s.S_NATIONKEY].N_REGIONKEY)) {
             for (auto& l : lineitemMap[s.S_SUPPKEY]) {
@@ -91,16 +91,16 @@ void q5() {
         }
     }
 
-    // 结果排序
+    // order by
     std::vector<std::pair<std::string, double>> results;
     for (auto& [key, agg] : aggregates) {
         results.emplace_back(key, agg.revenue);
     }
     std::sort(results.begin(), results.end(), [](const auto& a, const auto& b) {
-        return a.second > b.second;  // 按收入降序排序
+        return a.second > b.second;
     });
 
-    // 打印结果
+    // print
     std::cout << "aaaa" << std::endl;
     for (auto& [name, revenue] : results) {
         std::cout << name << "\t" << revenue << std::endl;

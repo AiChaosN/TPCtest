@@ -21,27 +21,27 @@ void q7() {
     Table<Customer> customerTable;
     Table<Nation> nationTable;
 
-    // Import data from files
+    // Import 
     supplierTable.importData("../data/supplier.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
     ordersTable.importData("../data/orders.tbl");
     customerTable.importData("../data/customer.tbl");
     nationTable.importData("../data/nation.tbl");
 
-    // Alias for easier access
+    //from 
     auto& suppliers = supplierTable.getData();
     auto& lineitems = lineItemTable.getData();
     auto& orders = ordersTable.getData();
     auto& customers = customerTable.getData();
     auto& nations = nationTable.getData();
 
-    // Create maps for nations to enhance lookup performance
+    // join
     std::unordered_map<int, std::string> nationMap;
     for (const auto& n : nations) {
         nationMap[n.N_NATIONKEY] = n.N_NAME;
     }
 
-    // Join conditions and filters
+    // Join and where
     std::vector<std::tuple<std::string, std::string, int, double>> results;
     for (const auto& s : suppliers) {
         for (const auto& l : lineitems) {
@@ -67,14 +67,14 @@ void q7() {
         }
     }
 
-    // Group by supp_nation, cust_nation, and l_year
+    // Group by 
     std::map<std::tuple<std::string, std::string, int>, double> aggregates;
     for (const auto& r : results) {
         auto key = std::make_tuple(std::get<0>(r), std::get<1>(r), std::get<2>(r));
         aggregates[key] += std::get<3>(r);
     }
 
-    // Prepare final results and sort
+    // order by
     std::vector<std::tuple<std::string, std::string, int, double>> finalResults;
     for (const auto& agg : aggregates) {
         finalResults.emplace_back(std::get<0>(agg.first), std::get<1>(agg.first), std::get<2>(agg.first), agg.second);

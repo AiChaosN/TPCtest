@@ -11,7 +11,7 @@
 #include "Structs.h"
 
 void q9() {
-    // Import the tables
+    // Import
     Table<Part> partTable;
     Table<Supplier> supplierTable;
     Table<LineItem> lineItemTable;
@@ -19,7 +19,7 @@ void q9() {
     Table<Orders> ordersTable;
     Table<Nation> nationTable;
 
-    // Load data from files
+    // Import the tables
     partTable.importData("../data/part.tbl");
     supplierTable.importData("../data/supplier.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
@@ -27,7 +27,7 @@ void q9() {
     ordersTable.importData("../data/orders.tbl");
     nationTable.importData("../data/nation.tbl");
 
-    // Alias for easier access
+    // fromS
     auto& parts = partTable.getData();
     auto& suppliers = supplierTable.getData();
     auto& lineitems = lineItemTable.getData();
@@ -38,7 +38,7 @@ void q9() {
     // Results vector to store tuples of nation, year, and profit amount
     std::vector<std::tuple<std::string, int, double>> results;
 
-    // Nested loops to emulate joins and filter conditions
+    // where and join
     for (const auto& p : parts) {
         if (p.P_NAME.find("dark") != std::string::npos) {
             for (const auto& l : lineitems) {
@@ -67,14 +67,14 @@ void q9() {
         }
     }
 
-    // Aggregate results by nation and year
+    // group by
     std::map<std::tuple<std::string, int>, double> aggregates;
     for (const auto& result : results) {
         auto key = std::make_tuple(std::get<0>(result), std::get<1>(result));
         aggregates[key] += std::get<2>(result);
     }
 
-    // Prepare final results and sort
+    // order by
     std::vector<std::tuple<std::string, int, double>> finalResults;
     for (const auto& agg : aggregates) {
         finalResults.emplace_back(std::get<0>(agg.first), std::get<1>(agg.first), agg.second);

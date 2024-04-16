@@ -2,7 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
-// Include necessary headers
+
 #include "Table.h"
 #include "Structs.h"
 
@@ -15,7 +15,7 @@ void q19() {
     partTable.importData("../data/part.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
 
-    // Alias for easier access
+    // from
     auto& parts = partTable.getData();
 
 

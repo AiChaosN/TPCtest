@@ -69,13 +69,13 @@ void q1() {
     //order by
     std::sort(results.begin(), results.end(), [](const auto& a, const auto& b) {
         if (std::get<0>(a) != std::get<0>(b)) {
-            return std::get<0>(a) < std::get<0>(b); // 第一个字符升序
+            return std::get<0>(a) < std::get<0>(b); // 升序
         }
-        return std::get<1>(a) < std::get<1>(b); // 第二个字符升序，只在第一个字符相同的情况下比较
+        return std::get<1>(a) < std::get<1>(b);
     });
 
 
-    //打印results是啥类型
+    //results是啥类型
     std::cout << "数据类型:\t" <<  typeName<decltype(results)>() << std::endl;
 
     //print
@@ -84,7 +84,9 @@ void q1() {
         char col2 = std::get<1>(item);
         auto agg = std::get<2>(item);
 
-        std::cout << col1 << " " << col2 << " " << agg.sum_qty << " " << agg.sum_base_price << " " << agg.sum_disc_price << " " << agg.sum_charge << " " << agg.avg_qty << " " << agg.avg_price << " " << agg.avg_disc << " " << agg.count_order << std::endl;
+        std::cout << col1 << " " << col2 << " " << agg.sum_qty << " " << agg.sum_base_price << " " \
+        << agg.sum_disc_price << " " << agg.sum_charge << " " << agg.avg_qty << " " << agg.avg_price << " " \
+        << agg.avg_disc << " " << agg.count_order << std::endl;
     }
     
 }
