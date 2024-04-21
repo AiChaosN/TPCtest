@@ -35,4 +35,4 @@ where
 	and n_name = 'JAPAN'
 order by
 	s_name;
-where rownum <= -1;
+-- where rownum <= -1;

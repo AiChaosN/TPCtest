@@ -101,7 +101,6 @@ void q5() {
     });
 
     // print
-    std::cout << "aaaa" << std::endl;
     for (auto& [name, revenue] : results) {
         std::cout << name << "\t" << revenue << std::endl;
     }

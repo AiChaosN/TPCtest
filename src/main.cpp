@@ -83,6 +83,12 @@ void myTest4() {
 }
 // }
 
+// 分隔符
+void delimiter()
+{
+    std::cout << "\n----------------\n----------------\n" << std::endl;
+}
+
 int main() {
     // myTest1();
     // std::cout << "----------------" << std::endl;
@@ -93,28 +99,39 @@ int main() {
     // myTest4();
     // std::cout << "----------------" << std::endl;
     // myTest5();
+    // delimiter();
+    
+    q1();
+    delimiter();
 
-    // q1();
+    q3();
+    delimiter();
 
-    // q3();
+    q5();//待测试 bug
+    delimiter();
 
-    // q5();//待测试 bug
+    q7(); //待测试 答案
+    delimiter();
 
-    // q7(); //待测试 答案
+    q9(); //待测试 答案
+    delimiter();
 
-    // q9(); //待测试 答案
+    q11(); //待测试 答案 无内容，无满足条件
+    delimiter();
 
-    // q11(); //待测试 答案 无内容，无满足条件
-
-    // q13(); //待测试 答案
+    q13(); //待测试 答案
+    delimiter();
 
     // q15(); //待测试 bug  缺表revenus0.tbl
+    // delimiter();
 
-    // q17(); //待测试 答案
+    q17(); //待测试 答案
+    delimiter();
 
-    // q19(); //待测试 答案
+    q19(); //待测试 答案
+    delimiter();
 
-    // q21(); //待测试 答案
+    q21(); //待测试 答案
 
     return 0;
 }

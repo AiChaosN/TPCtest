@@ -25,4 +25,4 @@ group by
 		)
 order by
 	value desc;
-where rownum <= -1;
+-- where rownum <= -1;

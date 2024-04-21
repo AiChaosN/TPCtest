@@ -41,4 +41,4 @@ order by
 	n_name,
 	s_name,
 	p_partkey;
-where rownum <= 100;
+-- where rownum <= 100;
