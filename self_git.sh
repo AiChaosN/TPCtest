@@ -10,8 +10,12 @@ git add src
 git add temp
 git add temp2
 
+# 测试评估部分
+git add test
+
 # 其他部分
 git add help
+git add jitTest
 git add self_git.sh
 git add README.md
 

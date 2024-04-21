@@ -39,9 +39,9 @@ struct LineItem {
     float L_TAX;
     char L_RETURNFLAG;
     char L_LINESTATUS;
-    std::string L_SHIPDATE;  // DARE
-    std::string L_COMMITDATE; // DARE
-    std::string L_RECEIPTDATE; // DARE
+    std::string L_SHIPDATE;  // DATE
+    std::string L_COMMITDATE; // DATE
+    std::string L_RECEIPTDATE; // DATE
     std::string L_SHIPINSTRUCT;
     std::string L_SHIPMODE;
     std::string L_COMMENT;

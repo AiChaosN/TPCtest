@@ -37,4 +37,4 @@ group by
 order by
 	numwait desc,
 	s_name;
-where rownum <= 100;
+-- where rownum <= 100;

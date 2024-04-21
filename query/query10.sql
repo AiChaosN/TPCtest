@@ -29,4 +29,4 @@ group by
 	c_comment
 order by
 	revenue desc;
-where rownum <= 20;
+-- where rownum <= 20;

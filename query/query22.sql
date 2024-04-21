@@ -35,4 +35,4 @@ group by
 	cntrycode
 order by
 	cntrycode;
-where rownum <= -1;
+-- where rownum <= -1;

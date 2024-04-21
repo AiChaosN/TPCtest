@@ -30,4 +30,4 @@ group by
 order by
 	o_totalprice desc,
 	o_orderdate;
-where rownum <= 100;
+-- where rownum <= 100;
