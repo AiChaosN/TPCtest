@@ -22,5 +22,10 @@ fi
 
 
 
+# 生成sql结果到ans.txt
+for i in {1..22}
+do
+    sudo -u postgres psql -p 5432 -d tpch -f ../query/query$i.sql > ./sql_ans/ans$i.txt
+done
 
 

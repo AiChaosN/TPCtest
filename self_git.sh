@@ -12,6 +12,7 @@ git add temp2
 
 # 测试评估部分
 git add test
+git add tmp_jit
 
 # 其他部分
 git add help

@@ -75,10 +75,48 @@ done
 sudo -u postgres psql -p 5432 -d tpch -f ./create_relation.sql
 ```
 
-
+### 1.2 查询结果
 运行sql文件:
 ```
-sudo -u postgres psql -p 5432 -d tpch -f ./query1.sql
+sudo -u postgres psql -p 5432 -d tpch -f ../query/query$i.sql > ./sql_ans/ans$i.txt
 ```
 
+
+## 1.3 测试结果准确性
+
+将psql结果导入sql_ans文件夹下.
+
+将cpp结果导入cpp_ans文件夹下.
+
+进行diff比较:
+
+# 2. 测试结果性能
+
+## 2.1 测试psql结果性能
+计算psql的时间,将sql文件前部分加入time命令
+```
+sudo -u postgres time psql -p 5432 -d tpch -f ../query/query1.sql > ./sql_ans/ans1.txt 2> ./sql_ans/time1.txt
+```
+
+清除缓存防止影响测试结果
+```
+sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"
+
+psql中清除缓存:
+DISCARD ALL;
+DEALLOCATE ALL;
+```
+
+
+## 2.2 测试cpp的结果性能
+
+sql文件使用
+```
+\timing on
+```
+
+cpp文件使用
+```
+std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+```
 

@@ -1,0 +1,40 @@
+  p_brand   |         p_type          | p_size | supplier_cnt 
+------------+-------------------------+--------+--------------
+ Brand#11   | PROMO ANODIZED TIN      |     45 |            4
+ Brand#11   | SMALL PLATED COPPER     |     45 |            4
+ Brand#11   | STANDARD POLISHED TIN   |     45 |            4
+ Brand#12   | LARGE POLISHED NICKEL   |     48 |            4
+ Brand#12   | SMALL BURNISHED TIN     |     31 |            4
+ Brand#13   | SMALL POLISHED STEEL    |     28 |            4
+ Brand#14   | SMALL ANODIZED NICKEL   |     45 |            4
+ Brand#15   | LARGE ANODIZED BRASS    |     45 |            4
+ Brand#21   | SMALL BRUSHED NICKEL    |     28 |            4
+ Brand#21   | SMALL BRUSHED TIN       |     31 |            4
+ Brand#21   | STANDARD BRUSHED TIN    |     32 |            4
+ Brand#24   | SMALL BURNISHED TIN     |     31 |            4
+ Brand#25   | MEDIUM PLATED BRASS     |     45 |            4
+ Brand#25   | PROMO ANODIZED TIN      |     31 |            4
+ Brand#31   | MEDIUM PLATED BRASS     |     28 |            4
+ Brand#32   | SMALL BRUSHED STEEL     |     32 |            4
+ Brand#34   | LARGE PLATED BRASS      |     45 |            4
+ Brand#35   | LARGE BRUSHED TIN       |     21 |            4
+ Brand#35   | SMALL BURNISHED NICKEL  |     39 |            4
+ Brand#35   | STANDARD BRUSHED BRASS  |     39 |            4
+ Brand#35   | STANDARD POLISHED BRASS |     32 |            4
+ Brand#42   | STANDARD POLISHED BRASS |     21 |            4
+ Brand#44   | PROMO PLATED BRASS      |     28 |            4
+ Brand#45   | MEDIUM PLATED TIN       |     48 |            4
+ Brand#52   | MEDIUM BURNISHED TIN    |     45 |            4
+ Brand#52   | SMALL ANODIZED COPPER   |     18 |            4
+ Brand#53   | MEDIUM POLISHED STEEL   |     48 |            4
+ Brand#53   | PROMO PLATED NICKEL     |     28 |            4
+ Brand#53   | STANDARD BRUSHED STEEL  |     32 |            4
+ Brand#54   | LARGE BRUSHED COPPER    |     28 |            4
+ Brand#54   | SMALL BURNISHED NICKEL  |     18 |            4
+ Brand#42   | ECONOMY PLATED BRASS    |     31 |            2
+ Brand#45   | LARGE POLISHED TIN      |     48 |            2
+ Brand#53   | STANDARD PLATED STEEL   |     45 |            2
+ Brand#45   | PROMO ANODIZED BRASS    |     45 |            1
+ Brand#53   | ECONOMY BRUSHED TIN     |     21 |            1
+(36 rows)
+
