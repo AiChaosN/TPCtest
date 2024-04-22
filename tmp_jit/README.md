@@ -1,8 +1,11 @@
 使用llvm库运行
+导入llvm库
+```
+xxx
+```
 
 
 使用shell命令运行
-```shell
-clang -S -emit-llvm -o test.ll test.c
-lli test.ll
+```
+./run_jit.sh
 ```
