@@ -22,4 +22,4 @@ group by
 	n_name
 order by
 	revenue desc;
-where rownum <= -1;
+-- where rownum <= -1;

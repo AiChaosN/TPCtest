@@ -27,13 +27,11 @@ void q21() {
     auto& orders = ordersTable.getData();
     auto& nations = nationTable.getData();
 
-    // Preparing a map for nation keys to filter by nation name 'INDIA'
+    // map for join
     std::unordered_map<int, std::string> nationKeyMap;
     for (const auto& n : nations) {
         nationKeyMap[n.N_NATIONKEY] = n.N_NAME;
     }
-
-    // Mapping orders to a specific status 'F' and mapping line items to orders
     std::unordered_map<int, const Orders*> ordersMap;
     for (const auto& o : orders) {
         if (o.O_ORDERSTATUS == 'F') {
@@ -41,7 +39,6 @@ void q21() {
         }
     }
 
-    // Suppliers from India
     std::unordered_map<int, const Supplier*> indianSuppliers;
     for (const auto& s : suppliers) {
         if (nationKeyMap[s.S_NATIONKEY] == "INDIA") {
@@ -49,17 +46,17 @@ void q21() {
         }
     }
 
-    // Count the number of waits per supplier name
+    // group by
     std::map<std::string, int> numWait;
 
-    // Check each line item for the conditions specified
+    // where
     for (const auto& l1 : lineItems) {
         if (ordersMap.find(l1.L_ORDERKEY) != ordersMap.end() && indianSuppliers.find(l1.L_SUPPKEY) != indianSuppliers.end()) {
             if (l1.L_RECEIPTDATE > l1.L_COMMITDATE) {
                 bool otherSupplierExists = false;
                 bool otherSupplierLateExists = false;
 
-                // Check for existence of other suppliers' line items
+
                 for (const auto& l2 : lineItems) {
                     if (l2.L_ORDERKEY == l1.L_ORDERKEY && l2.L_SUPPKEY != l1.L_SUPPKEY) {
                         otherSupplierExists = true;
@@ -77,13 +74,13 @@ void q21() {
         }
     }
 
-    // Prepare sorted results
+    // order by
     std::vector<std::pair<std::string, int>> sortedResults(numWait.begin(), numWait.end());
     std::sort(sortedResults.begin(), sortedResults.end(), [](const auto& a, const auto& b) {
         return a.second == b.second ? a.first < b.first : a.second > b.second;
     });
 
-    // Output the results, limited to the top 100 entries
+    // Output 
     std::cout << "Supplier Name\tNumWait\n";
     int count = 0;
     for (const auto& result : sortedResults) {

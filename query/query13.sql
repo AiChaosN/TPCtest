@@ -18,4 +18,4 @@ group by
 order by
 	custdist desc,
 	c_count desc;
-where rownum <= -1;
+-- where rownum <= -1;

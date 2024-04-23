@@ -19,4 +19,4 @@ group by
 	o_orderpriority
 order by
 	o_orderpriority;
-where rownum <= -1;
+-- where rownum <= -1;

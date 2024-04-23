@@ -28,4 +28,4 @@ order by
 	p_brand,
 	p_type,
 	p_size;
-where rownum <= -1;
+-- where rownum <= -1;

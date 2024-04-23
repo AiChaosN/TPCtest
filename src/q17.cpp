@@ -4,27 +4,27 @@
 #include <numeric>
 #include <algorithm>
 
-// Assume these are defined in included headers
+
 #include "Table.h"
 #include "Structs.h"
 
 void q17() {
-    // Import the tables
+    // Import 
     Table<Part> partTable;
     Table<LineItem> lineItemTable;
 
-    // Load data from files
+    // Load data
     partTable.importData("../data/part.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
 
-    // Alias for easier access
+    // from
     auto& parts = partTable.getData();
     auto& lineItems = lineItemTable.getData();
 
     // Map to store average quantities for each part
     std::unordered_map<int, double> avgQuantities;
 
-    // First pass: calculate the average quantity of line items for each part
+    // First pass
     for (const auto& part : parts) {
         std::vector<double> quantities;
         for (const auto& lineItem : lineItems) {
@@ -38,7 +38,7 @@ void q17() {
         }
     }
 
-    // Second pass: calculate the sum of l_extendedprice for matching conditions
+    // Second pass
     double totalExtendedPrice = 0;
     for (const auto& part : parts) {
         if (part.P_BRAND == "Brand#34" && part.P_CONTAINER == "MED CASE") {

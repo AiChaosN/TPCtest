@@ -9,28 +9,28 @@
 #include "Structs.h"
 
 void q11() {
-    // Import the tables
+    // Import
     Table<PartSupp> partSuppTable;
     Table<Supplier> supplierTable;
     Table<Nation> nationTable;
 
-    // Load data from files
+    // Load data
     partSuppTable.importData("../data/partsupp.tbl");
     supplierTable.importData("../data/supplier.tbl");
     nationTable.importData("../data/nation.tbl");
 
-    // Alias for easier access
+    //from 
     auto& partSupps = partSuppTable.getData();
     auto& suppliers = supplierTable.getData();
     auto& nations = nationTable.getData();
 
-    // Create nation key map for quick lookup
+    // where 
     std::unordered_map<int, std::string> nationMap;
     for (const auto& n : nations) {
         nationMap[n.N_NATIONKEY] = n.N_NAME;
     }
 
-    // Calculate the total value for all relevant part supplies
+    // join
     double totalValue = 0;
     std::unordered_map<int, double> partValues;
     for (const auto& ps : partSupps) {
