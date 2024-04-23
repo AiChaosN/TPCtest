@@ -42,7 +42,9 @@ void q2() {
                 for (auto& r : regions) {
                     if (ps.PS_PARTKEY == s.S_SUPPKEY && s.S_NATIONKEY == n.N_NATIONKEY &&
                         n.N_REGIONKEY == r.R_REGIONKEY && r.R_NAME == "ASIA") {
-                        minSupplyCost = std::min(minSupplyCost, ps.PS_SUPPLYCOST);
+                        if (ps.PS_SUPPLYCOST < minSupplyCost) {
+                            minSupplyCost = ps.PS_SUPPLYCOST;
+                        }
                     }
                 }
             }
@@ -88,4 +90,3 @@ void q2() {
                   << std::get<6>(item) << "\t" << std::get<7>(item) << std::endl;
     }
 }
-

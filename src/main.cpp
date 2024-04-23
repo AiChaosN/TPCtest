@@ -2,7 +2,7 @@
 #include "Structs.h"
 
 #include "q.h"
-
+/*
 void myTest1() {
     // 使用MyStruct作为模板参数来创建Table类的实例
     Table<MyStruct> myTable;
@@ -22,7 +22,7 @@ void myTest1() {
     for (const auto& row : data) {
         std::cout << row.id << "\t" << row.name << std::endl;
     }
-    
+
 }
 
 //nationTable
@@ -82,7 +82,7 @@ void myTest4() {
     }
 }
 // }
-
+*/
 // 分隔符
 void delimiter()
 {
@@ -100,7 +100,7 @@ int main() {
     // std::cout << "----------------" << std::endl;
     // myTest5();
     // delimiter();
-    
+    /*
     q1();
     delimiter();
 
@@ -132,6 +132,23 @@ int main() {
     delimiter();
 
     q21(); //待测试 答案
-
+    */
+    delimiter();
+    q2();
+    delimiter();
+    q4();
+    delimiter();
+    q6();
+    delimiter();
+    q10();
+    delimiter();
+    q12();
+    delimiter();
+    q16();
+    delimiter();
+    q18();
+    delimiter();
+    q20();
+    delimiter();
     return 0;
 }
