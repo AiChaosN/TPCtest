@@ -11,6 +11,11 @@
 // 扩展的工具函数
 #include "Tool.h"
 
+int extractYear(const std::string& dateStr) {
+    // Assuming dateStr is in the format "YYYY-MM-DD"
+    return std::stoi(dateStr.substr(0, 4));
+}
+
 void q8() {
     // begin
     Table<Part> partTable;
@@ -81,8 +86,4 @@ void q8() {
     }
 }
 
-int extractYear(const std::string& dateStr) {
-    // Assuming dateStr is in the format "YYYY-MM-DD"
-    return std::stoi(dateStr.substr(0, 4));
-}
 

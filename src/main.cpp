@@ -133,8 +133,9 @@ int main() {
 
     q21(); //待测试 答案
     */
+
     delimiter();
-    q2();
+    /*q2();
     delimiter();
     q4();
     delimiter();
@@ -149,6 +150,8 @@ int main() {
     q18();
     delimiter();
     q20();
+    delimiter();*/
+    q8();
     delimiter();
     return 0;
 }
