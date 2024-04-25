@@ -5,10 +5,10 @@
 //表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
 //扩展的工具函数
 #include "Tool.h"
-
+#include <ctime>
 
 void q3() {
 
@@ -19,6 +19,9 @@ void q3() {
     customerTable.importData("../data/customer.tbl");
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& customer = customerTable.getData();
@@ -49,7 +52,7 @@ void q3() {
     }
 
     //join
-    // 建立哈希表1
+    // create hash table 1
     std::unordered_map<int, Orders> orderKeyMap;
     for (auto& o : orders_new) {
         orderKeyMap[o.O_ORDERKEY] = o;
@@ -107,12 +110,15 @@ void q3() {
         return std::get<2>(a) < std::get<2>(b); // 字符串字段升序
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
     //打印results是啥类型
-    std::cout << "数据类型:\t" <<  typeName<decltype(results)>() << std::endl;
+    std::cout << "typeName:\t" <<  typeName<decltype(results)>() << std::endl;
 
     //print
-    std::cout << "---------打印结果-------\n" << std::endl;
+    std::cout << "---------print results-------\n" << std::endl;
     for (auto& item : results) {
         int col1 = std::get<0>(item);
         double col2 = std::get<1>(item);
@@ -122,3 +128,7 @@ void q3() {
     }
 }
 
+int main() {
+    q3();
+    return 0;
+}

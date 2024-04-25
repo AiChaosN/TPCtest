@@ -1,0 +1,62 @@
+数据类型:	std::vector<std::tuple<char, char, q1()::AggregateResults>, std::allocator<std::tuple<char, char, q1()::AggregateResults> > >
+执行时间1: 0.063 ms
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+执行时间3: 0.004 ms
+数据类型:	std::vector<std::tuple<int, double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::tuple<int, double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >
+---------打印结果-------
+
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+执行时间5: 0.004 ms
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+执行时间7: 0.002 ms
+Supp_Nation	Cust_Nation	Year	Revenue
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+执行时间9: 0.002 ms
+Nation	Year	Sum_Profit
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+PartKey	Value
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+Count of Orders	Number of Customers
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+Average Yearly: 0
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+Total Revenue: 0
+Time taken by function: 0 milliseconds
+
+----------------
+----------------
+
+Supplier Name	NumWait
+Time taken by function: 0 milliseconds

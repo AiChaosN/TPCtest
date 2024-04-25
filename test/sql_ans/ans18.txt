@@ -1,4 +1,6 @@
+Timing is on.
  c_name | c_custkey | o_orderkey | o_orderdate | o_totalprice | sum 
 --------+-----------+------------+-------------+--------------+-----
 (0 rows)
 
+Time: 3.079 ms

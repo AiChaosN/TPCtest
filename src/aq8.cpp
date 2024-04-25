@@ -7,7 +7,7 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
 // 扩展的工具函数
 #include "Tool.h"
 
@@ -84,5 +84,10 @@ void q8() {
 int extractYear(const std::string& dateStr) {
     // Assuming dateStr is in the format "YYYY-MM-DD"
     return std::stoi(dateStr.substr(0, 4));
+}
+
+int main() {
+    q8();
+    return 0;
 }
 

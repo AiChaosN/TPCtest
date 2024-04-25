@@ -7,6 +7,7 @@
 // Include the necessary header files
 #include "Table.h"
 #include "Structs.h"
+#include <ctime>
 
 void q13() {
     // Import 
@@ -16,6 +17,9 @@ void q13() {
     // Load data 
     customerTable.importData("../data/customer.tbl");
     ordersTable.importData("../data/orders.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& customers = customerTable.getData();
@@ -50,11 +54,20 @@ void q13() {
         }
         return a.second > b.second;  
     });
+    
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间13: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
     // Output
     std::cout << "Count of Orders\tNumber of Customers\n";
     for (const auto& result : sortedResults) {
         std::cout << result.first << "\t" << result.second << std::endl;
     }
+}
+
+int main() {
+    q13();
+    return 0;
 }
 

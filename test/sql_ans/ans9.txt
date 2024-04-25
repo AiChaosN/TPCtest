@@ -1,3 +1,4 @@
+Timing is on.
           nation           | o_year | sum_profit  
 ---------------------------+--------+-------------
  ARGENTINA                 |   1998 | 125937.5824
@@ -62,3 +63,4 @@
  UNITED STATES             |   1992 | 128272.6800
 (60 rows)
 
+Time: 5.729 ms

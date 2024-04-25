@@ -22,10 +22,19 @@ fi
 
 
 
-# 生成sql结果到ans.txt
+# 生成sql结果到sql_ans中
+# for i in {1..22}
+# do
+#     (echo '\timing on'; cat ../query/query$i.sql) | sudo -u postgres psql -p 5432 -d tpch > ./sql_ans/ans$i.txt
+# done
+
+# 生成psql时间到psql_time.txt 统一放置
+# 先清空或创建文件，确保文件是空的
+echo -n "" > ./sql_ans/ans.txt
+echo -n "" > ./sql_ans/psql_time.txt
+
 for i in {1..22}
 do
-    sudo -u postgres psql -p 5432 -d tpch -f ../query/query$i.sql > ./sql_ans/ans$i.txt
+    # 使用子 shell 来执行命令，捕获所有输出
+    (echo '\timing on'; cat ../query/query$i.sql) | sudo -u postgres psql -p 5432 -d tpch 2>&1 | tee >(grep 'Time:' >> ./sql_ans/psql_time.txt) | grep -v 'Time:' >> ./sql_ans/ans.txt
 done
-
-

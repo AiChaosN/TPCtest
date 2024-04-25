@@ -5,7 +5,9 @@
 #include <algorithm>
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
+#include <ctime>
+
 
 void q16() {
     // Load data from tables
@@ -16,6 +18,9 @@ void q16() {
     partTable.importData("../data/part.tbl");
     partsuppTable.importData("../data/partsupp.tbl");
     supplierTable.importData("../data/supplier.tbl");
+    
+    // time
+    clock_t start = clock();
 
     // Get data references
     auto& parts = partTable.getData();
@@ -77,11 +82,20 @@ void q16() {
                std::tie(std::get<3>(a), std::get<0>(b), std::get<1>(b), std::get<2>(b));
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间16: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Displaying results
     std::cout << "Brand\tType\tSize\tSupplier Count\n";
     for (const auto& result : results) {
         std::cout << std::get<0>(result) << "\t" << std::get<1>(result) << "\t"
                   << std::get<2>(result) << "\t" << std::get<3>(result) << std::endl;
     }
+}
+
+int main() {
+    q16();
+    return 0;
 }
 

@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
 
 void q22() {
     // Load data
@@ -61,3 +61,7 @@ void q22() {
     }
 }
 
+int main() {
+    q22();
+    return 0;
+}

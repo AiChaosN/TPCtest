@@ -9,10 +9,10 @@
 //表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
 //扩展的工具函数
 #include "Tool.h"
-
+#include <ctime>
 void q7() {
     // Import the tables
     Table<Supplier> supplierTable;
@@ -34,6 +34,9 @@ void q7() {
     auto& orders = ordersTable.getData();
     auto& customers = customerTable.getData();
     auto& nations = nationTable.getData();
+
+    // time
+    clock_t start = clock();
 
     // join
     std::unordered_map<int, std::string> nationMap;
@@ -81,6 +84,10 @@ void q7() {
     }
     std::sort(finalResults.begin(), finalResults.end());
 
+    //time
+    clock_t stop = clock(); // 记录结束时间
+    std::cout << "执行时间7: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    
     // Output the results
     std::cout << "Supp_Nation\tCust_Nation\tYear\tRevenue\n";
     for (const auto& res : finalResults) {
@@ -88,3 +95,7 @@ void q7() {
     }
 }
 
+int main() {
+    q7();
+    return 0;
+}

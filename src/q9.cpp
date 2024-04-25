@@ -6,10 +6,10 @@
 #include <tuple>
 #include <algorithm>
 
-// Include the necessary header files
+
 #include "Table.h"
 #include "Structs.h"
-
+#include <ctime>
 void q9() {
     // Import
     Table<Part> partTable;
@@ -34,6 +34,9 @@ void q9() {
     auto& partsupps = partSuppTable.getData();
     auto& orders = ordersTable.getData();
     auto& nations = nationTable.getData();
+
+    // time
+    clock_t start = clock();
 
     // Results vector to store tuples of nation, year, and profit amount
     std::vector<std::tuple<std::string, int, double>> results;
@@ -86,9 +89,19 @@ void q9() {
         return std::get<0>(a) < std::get<0>(b);
     });
 
+    // time
+    clock_t stop = clock(); // 记录结束时间
+    std::cout << "执行时间9: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+ 
+
     // Output the results
     std::cout << "Nation\tYear\tSum_Profit\n";
     for (const auto& res : finalResults) {
         std::cout << std::get<0>(res) << "\t" << std::get<1>(res) << "\t" << std::get<2>(res) << std::endl;
     }
+}
+
+int main() {
+    q9();
+    return 0;
 }

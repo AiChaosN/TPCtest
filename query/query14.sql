@@ -11,7 +11,7 @@ where
 	l_partkey = p_partkey
 	and l_shipdate >= date '1995-11-01'
 	and l_shipdate < date '1995-11-01' + interval '1' month;
-where rownum <= -1;
+-- where rownum <= -1;
 
 create view revenue0 (supplier_no, total_revenue) as
 	select

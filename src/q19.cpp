@@ -6,6 +6,8 @@
 #include "Table.h"
 #include "Structs.h"
 
+#include <ctime>
+
 void q19() {
     // Import the tables
     Table<Part> partTable;
@@ -14,6 +16,9 @@ void q19() {
     // Load data from files
     partTable.importData("../data/part.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& parts = partTable.getData();
@@ -57,7 +62,16 @@ void q19() {
         }
     }
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间19: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output total revenue
     std::cout << "Total Revenue: " << totalRevenue << std::endl;
+}
+
+int main() {
+    q19();
+    return 0;
 }
 

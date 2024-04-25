@@ -6,15 +6,19 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 void q6() {
     // begin
     Table<LineItem> lineItemTable;
 
     lineItemTable.importData("../data/lineitem.tbl");
+    
+    // time
+    clock_t start = clock();
 
     // from
     auto& lineitems = lineItemTable.getData();
@@ -30,7 +34,16 @@ void q6() {
         }
     }
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间6: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output the results
     std::cout << "Total Revenue: " << totalRevenue << std::endl;
+}
+
+int main() {
+    q6();
+    return 0;
 }
 

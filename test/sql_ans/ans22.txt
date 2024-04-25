@@ -1,3 +1,4 @@
+Timing is on.
  cntrycode | numcust | totacctbal 
 -----------+---------+------------
  11        |       4 |   29942.58
@@ -7,3 +8,4 @@
  33        |       1 |    6327.54
 (5 rows)
 
+Time: 4.485 ms

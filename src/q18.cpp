@@ -6,7 +6,8 @@
 #include <algorithm>
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
+#include <ctime>
 
 void q18() {
     // Loading data from tables
@@ -17,6 +18,9 @@ void q18() {
     customerTable.importData("../data/customer.tbl");
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
+
+    // time
+    clock_t start = clock();
 
     // Get data references
     auto& customers = customerTable.getData();
@@ -81,6 +85,10 @@ void q18() {
         return a.orderDate < b.orderDate;
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间18: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Display top 100 results
     int count = 0;
     for (const auto& result : sortedResults) {
@@ -89,4 +97,9 @@ void q18() {
                   << result.orderKey << ", " << result.orderDate << ", "
                   << result.totalPrice << ", " << result.totalQuantity << std::endl;
     }
+}
+
+int main() {
+    q18();
+    return 0;
 }

@@ -9,7 +9,7 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
 // 扩展的工具函数
 #include "Tool.h"
 
@@ -87,5 +87,10 @@ void q2() {
                   << std::get<3>(item) << "\t" << std::get<4>(item) << "\t" << std::get<5>(item) << "\t"
                   << std::get<6>(item) << "\t" << std::get<7>(item) << std::endl;
     }
+}
+
+int main() {
+    q2();
+    return 0;
 }
 

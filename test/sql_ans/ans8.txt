@@ -1,4 +1,6 @@
+Timing is on.
  o_year | mkt_share 
 --------+-----------
 (0 rows)
 
+Time: 2.905 ms

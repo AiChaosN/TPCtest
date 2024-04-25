@@ -1,3 +1,4 @@
+Timing is on.
  c_count | custdist 
 ---------+----------
        0 |       50
@@ -30,3 +31,4 @@
        6 |        1
 (28 rows)
 
+Time: 2.978 ms

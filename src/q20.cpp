@@ -6,7 +6,8 @@
 #include <algorithm>
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
+#include <ctime>
 
 void q20() {
     // Loading data
@@ -21,6 +22,9 @@ void q20() {
     partsuppTable.importData("../data/partsupp.tbl");
     partTable.importData("../data/part.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
+
+    // time
+    clock_t start = clock();
 
     // Get data references
     auto& suppliers = supplierTable.getData();
@@ -75,8 +79,18 @@ void q20() {
         return a.first < b.first;
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间20: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output the results
     for (const auto& result : results) {
         std::cout << result.first << ", " << result.second << std::endl;
     }
+}
+
+
+int main() {
+    q20();
+    return 0;
 }

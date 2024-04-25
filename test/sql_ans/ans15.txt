@@ -1,6 +1,10 @@
+Timing is on.
  s_suppkey |          s_name           |         s_address         |     s_phone     | total_revenue 
 -----------+---------------------------+---------------------------+-----------------+---------------
          4 | Supplier#000000004        | Bk7ah4CK8SYQTepEmvMkkgMwg | 25-843-787-7479 |   897414.9413
 (1 row)
 
+Time: 2.996 ms
 DROP VIEW
+Time: 3.265 ms
+Time: 0.149 ms

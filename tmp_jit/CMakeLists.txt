@@ -9,8 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_COMPILER "clang")
 set(CMAKE_CXX_COMPILER "clang++")
 
-# 设置源文件
-set(SOURCE_FILES "../src/main.cpp" "../src/Structs.cpp" "../src/q1.cpp")
+# 设置源文件q1.cpp q3.cpp q5.cpp q7.cpp q9.cpp q11.cpp q13.cpp q17.cpp q19.cpp q21.cpp
+set(SOURCE_FILES "../src/main.cpp" "../src/Structs.cpp" "../src/q1.cpp" "../src/q3.cpp" "../src/q5.cpp" "../src/q7.cpp" "../src/q9.cpp" "../src/q11.cpp" "../src/q13.cpp" "../src/q17.cpp" "../src/q19.cpp" "../src/q21.cpp")
 
 # 为每个源文件添加一个目标，生成 LLVM IR
 foreach(SOURCE_FILE ${SOURCE_FILES})
@@ -35,6 +35,6 @@ add_custom_target(combined ALL
 add_custom_command(
     TARGET combined
     POST_BUILD
-    COMMAND llvm-link -o query.bc ${IR_FILES}
+    COMMAND llvm-link -o combined.bc ${IR_FILES}
     COMMENT "Linking all IR files into combined-final.bc"
 )

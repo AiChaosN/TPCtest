@@ -8,6 +8,8 @@
 #include "Table.h"
 #include "Structs.h"
 
+#include <ctime>
+
 void q11() {
     // Import
     Table<PartSupp> partSuppTable;
@@ -18,6 +20,9 @@ void q11() {
     partSuppTable.importData("../data/partsupp.tbl");
     supplierTable.importData("../data/supplier.tbl");
     nationTable.importData("../data/nation.tbl");
+
+    // time
+    clock_t start = clock();
 
     //from 
     auto& partSupps = partSuppTable.getData();
@@ -59,10 +64,19 @@ void q11() {
         return a.second > b.second;
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "执行时间11: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output the results
     std::cout << "PartKey\tValue\n";
     for (const auto& res : filteredParts) {
         std::cout << res.first << "\t" << res.second << std::endl;
     }
+}
+
+int main() {
+    q11();
+    return 0;
 }
 

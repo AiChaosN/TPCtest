@@ -1,4 +1,6 @@
+Timing is on.
  s_name | numwait 
 --------+---------
 (0 rows)
 
+Time: 1.651 ms

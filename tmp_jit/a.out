@@ -1,12 +1,15 @@
 数据类型:	std::vector<std::tuple<char, char, q1()::AggregateResults>, std::allocator<std::tuple<char, char, q1()::AggregateResults> > >
+执行时间1: 1.804 ms
 A F 37474 3.75696e+07 3.56762e+07 3.71014e+07 25.3545 25419.2 0 1478
 N F 1041 1.0413e+06 999061 1.03645e+06 27.3947 27402.7 0 38
 N O 75168 7.5385e+07 7.16532e+07 7.44988e+07 25.5587 25632.4 0 2941
 R F 36511 3.65708e+07 3.47385e+07 3.61691e+07 25.059 25100.1 0 1457
+Time taken by function: 8 milliseconds
 
 ----------------
 ----------------
 
+执行时间3: 1.087 ms
 数据类型:	std::vector<std::tuple<int, double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::tuple<int, double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >
 ---------打印结果-------
 
@@ -45,23 +48,29 @@ R F 36511 3.65708e+07 3.47385e+07 3.61691e+07 25.059 25100.1 0 1457
 18	5500.13	1995-02-26	1995-03-21
 17	2156.39	1995-02-24	1995-04-24
 18	1873.55	1995-03-04	1995-04-09
+Time taken by function: 8 milliseconds
 
 ----------------
 ----------------
 
+执行时间5: 1.836 ms
+Time taken by function: 9 milliseconds
 
 ----------------
 ----------------
 
+执行时间7: 57.663 ms
 Supp_Nation	Cust_Nation	Year	Revenue
 ARGENTINA	IRAQ	1995	158592
 ARGENTINA	IRAQ	1996	91647.2
 IRAQ	ARGENTINA	1995	60911.9
 IRAQ	ARGENTINA	1996	32103.9
+Time taken by function: 65 milliseconds
 
 ----------------
 ----------------
 
+执行时间9: 3.771 ms
 Nation	Year	Sum_Profit
 ARGENTINA	1998	62968.8
 ARGENTINA	1997	54196.6
@@ -123,11 +132,13 @@ UNITED STATES	1995	27734.1
 UNITED STATES	1994	17716
 UNITED STATES	1993	11553.9
 UNITED STATES	1992	64136.3
+Time taken by function: 13 milliseconds
 
 ----------------
 ----------------
 
 PartKey	Value
+Time taken by function: 0 milliseconds
 
 ----------------
 ----------------
@@ -160,18 +171,22 @@ Count of Orders	Number of Customers
 28	1
 22	1
 3	1
+Time taken by function: 1 milliseconds
 
 ----------------
 ----------------
 
 Average Yearly: 0
+Time taken by function: 13 milliseconds
 
 ----------------
 ----------------
 
 Total Revenue: 33058.1
+Time taken by function: 13 milliseconds
 
 ----------------
 ----------------
 
 Supplier Name	NumWait
+Time taken by function: 8 milliseconds
