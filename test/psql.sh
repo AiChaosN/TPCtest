@@ -55,5 +55,5 @@ do
     (
       echo "PREPARE plan$i AS $(cat ../query/query$i.sql);"
       echo "EXPLAIN ANALYZE EXECUTE plan$i;"
-    ) | sudo -u postgres psql -p 5432 -d tpch 2>&1 | tee >(grep 'Execution Time' | sed "s/^/query$i: /" >> ./sql_ans/psql_time.txt) >/dev/null
+    ) | sudo -u postgres psql -p 5432 -d tpch 2>&1 | tee >(grep 'Execution Time' | sed "s/^/query$i: /" >> ./sql_ans/psql_time.txt) > /dev/null
 done
