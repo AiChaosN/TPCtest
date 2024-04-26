@@ -10,6 +10,9 @@ git add src
 git add temp
 git add temp2
 
+git add bin
+git add bitcode
+
 # 测试评估部分
 git add test
 git add tmp_jit
@@ -17,6 +20,7 @@ git add tmp_jit
 # 其他部分
 git add help
 git add jitTest
+git add other
 git add self_git.sh
 git add README.md
 
