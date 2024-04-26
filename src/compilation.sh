@@ -1,30 +1,33 @@
-# make
-
-# ./demo > ../test/sql_ans/cpp_ans.txt
-
 #!/bin/bash
 
-# 设置编译器
+
+# init compiler and optimize level
 COMPILER=g++
+if [ "$1" == "clang" ]; then
+    COMPILER=clang++
+fi
+Optimize_level=-O3
 
-# 设置包含的头文件目录
+# Path
+# include directory
 INCLUDE_DIR="./include"
-
-# 输出目录
+# output directory
 OUTPUT_DIR="../bin"
 
-# 确保输出目录存在
+# make sure output directory exists
 mkdir -p $OUTPUT_DIR
 
-# 从src目录编译所有q开头的cpp文件
+# compile Structs.cpp to exe
 for file in q*.cpp; do
-    # 获取不带后缀的文件名，剔除路径部分
+    # get file name without suffix, remove path part
     base_name=$(basename "$file" .cpp)
     
-    # 编译cpp文件，启用C++17标准，生成可执行文件，输出到指定目录
-    $COMPILER -std=c++17 -I $INCLUDE_DIR -o "$OUTPUT_DIR/$base_name" $file Structs.cpp || exit 1
+    # compile each q*.cpp to exe
+    start_time=$(date +%s%N)/1000000
+    $COMPILER -std=c++17 -I $INCLUDE_DIR $Optimize_level -o "$OUTPUT_DIR/$base_name" $file Structs.cpp || exit 1
+    echo "$base_name compile to exe end, time: $(($(date +%s%N)/1000000 - start_time))"
 
 done
 
-echo "Compilation complete."
+echo "Compilation by $COMPILER complete."
 

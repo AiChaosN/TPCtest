@@ -1,24 +1,22 @@
-Time: 7.410 ms
-Time: 1.919 ms
-Time: 2.917 ms
-Time: 2.120 ms
-Time: 2.282 ms
-Time: 1.728 ms
-Time: 2.583 ms
-Time: 2.535 ms
-Time: 3.800 ms
-Time: 2.648 ms
-Time: 1.467 ms
-Time: 2.192 ms
-Time: 2.083 ms
-Time: 1.651 ms
-Time: 9.888 ms
-Time: 2.379 ms
-Time: 2.563 ms
-Time: 1.529 ms
-Time: 0.825 ms
-Time: 2.910 ms
-Time: 2.310 ms
-Time: 19.723 ms
-Time: 1.927 ms
-Time: 1.804 ms
+query1:  Execution Time: 4.920 ms
+query2:  Execution Time: 0.251 ms
+query3:  Execution Time: 1.038 ms
+query4:  Execution Time: 1.301 ms
+query5:  Execution Time: 0.470 ms
+query6:  Execution Time: 0.615 ms
+query7:  Execution Time: 0.968 ms
+query8:  Execution Time: 0.124 ms
+query9:  Execution Time: 2.233 ms
+query10:  Execution Time: 1.183 ms
+query11:  Execution Time: 0.112 ms
+query12:  Execution Time: 1.397 ms
+query13:  Execution Time: 1.390 ms
+query14:  Execution Time: 0.648 ms
+query15:  Execution Time: 1.172 ms
+query16:  Execution Time: 0.391 ms
+query17:  Execution Time: 0.083 ms
+query18:  Execution Time: 1.702 ms
+query19:  Execution Time: 0.968 ms
+query20:  Execution Time: 17.583 ms
+query21:  Execution Time: 0.145 ms
+query22:  Execution Time: 0.605 ms

@@ -9,7 +9,6 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-
 // 扩展的工具函数
 #include "Tool.h"
 
@@ -42,7 +41,9 @@ void q2() {
                 for (auto& r : regions) {
                     if (ps.PS_PARTKEY == s.S_SUPPKEY && s.S_NATIONKEY == n.N_NATIONKEY &&
                         n.N_REGIONKEY == r.R_REGIONKEY && r.R_NAME == "ASIA") {
-                        minSupplyCost = std::min(minSupplyCost, ps.PS_SUPPLYCOST);
+                        if (ps.PS_SUPPLYCOST < minSupplyCost) {
+                            minSupplyCost = ps.PS_SUPPLYCOST;
+                        }
                     }
                 }
             }

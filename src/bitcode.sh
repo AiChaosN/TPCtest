@@ -1,30 +1,30 @@
 #!/bin/bash
 
-# 设置编译器，使用clang++
+# init compiler and optimize level
 COMPILER=clang++
+Optimize_level=-O3
 
-# 设置包含的头文件目录
+# Path
 INCLUDE_DIR="."
-
-# 输出目录
 OUTPUT_DIR="../bitcode"
 
-# 确保输出目录存在
+# make sure output directory exists
 mkdir -p $OUTPUT_DIR
 
-# 单独编译Structs.cpp为bitcode
+# compile Structs.cpp to LLVM bitcode
 $COMPILER -std=c++17 -I $INCLUDE_DIR -emit-llvm -c Structs.cpp -o "$OUTPUT_DIR/Structs.bc"
 
-# 从src目录编译所有q开头的cpp文件为LLVM bitcode
+# compile q*.cpp to LLVM bitcode
 for file in q*.cpp; do
-    # 获取不带后缀的文件名，剔除路径部分
     base_name=$(basename "$file" .cpp)
     
-    # 单独编译每个q*.cpp文件为LLVM bitcode
-    $COMPILER -std=c++17 -I $INCLUDE_DIR -emit-llvm -c $file -o "$OUTPUT_DIR/$base_name.bc"
+    # compile each q*.cpp to bitcode
+    start_time=$(date +%s%N)/1000000
+    $COMPILER -std=c++17 -I $INCLUDE_DIR -emit-llvm -c $file $Optimize_level -o "$OUTPUT_DIR/$base_name.bc"
     
-    # 链接Structs.bc与当前生成的bitcode文件
+    # link Structs.bc to q*.bc
     llvm-link "$OUTPUT_DIR/Structs.bc" "$OUTPUT_DIR/$base_name.bc" -o "$OUTPUT_DIR/$base_name.bc"
+    echo "$base_name compile to .bc, time: $(($(date +%s%N)/1000000 - start_time))"
 done
 
-echo "Bitcode compilation complete."
+echo "Bitcode compilation by $COMPILER complete."

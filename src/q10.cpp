@@ -7,7 +7,6 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-
 // 扩展的工具函数
 #include "Tool.h"
 
@@ -58,7 +57,7 @@ void q10() {
     for (auto& l : lineitems) {
         if (ordersMap.count(l.L_ORDERKEY) && l.L_RETURNFLAG == 'R') {
             Orders& o = ordersMap[l.L_ORDERKEY];
-            Customer& c = customers[o.O_CUSTKEY];
+            const Customer& c = customers[o.O_CUSTKEY];
             Nation& n = nationsMap[c.C_NATIONKEY];
             customerRevenue[c.C_CUSTKEY].revenue += l.L_EXTENDEDPRICE * (1 - l.L_DISCOUNT);
             customerRevenue[c.C_CUSTKEY].name = c.C_NAME;

@@ -7,9 +7,13 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-
 // 扩展的工具函数
 #include "Tool.h"
+
+int extractYear(const std::string& dateStr) {
+    // Assuming dateStr is in the format "YYYY-MM-DD"
+    return std::stoi(dateStr.substr(0, 4));
+}
 
 void q8() {
     // begin
@@ -79,11 +83,6 @@ void q8() {
         double marketShare = (totalVolume == 0) ? 0 : (iraqVolume / totalVolume);
         std::cout << year << "\t" << marketShare << "\n";
     }
-}
-
-int extractYear(const std::string& dateStr) {
-    // Assuming dateStr is in the format "YYYY-MM-DD"
-    return std::stoi(dateStr.substr(0, 4));
 }
 
 int main() {

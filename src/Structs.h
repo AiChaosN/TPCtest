@@ -6,12 +6,12 @@
 
 /*
     * Structs.h
-    * 定义一些结构体，用于模仿数据库建表
-    * 该文件还需要定义模板函数，用于将字符串转换为特定类型
+    * define the struct of the tables
+    * define the convertToT function
 */
 
 
-// 定义一个结构体模仿数据库建表
+// define the struct of the tables
 struct Customer {
     int C_CUSTKEY;
     std::string C_NAME;
@@ -97,43 +97,49 @@ struct Supplier {
     std::string S_COMMENT;
 };
 
-// 定义一个模板函数，用于将特定类型转换为字符串 -----------------------------------------------------------
+// new Sreuct for q14
+struct Revenue0 {
+    int supplier_no;
+    double total_revenue;
+};
 
-// 定义一个模板函数，用于将字符串转换为特定类型
+// define the convertToT function
 template<typename T>
 T convertToT(const std::string& value);
 
-// // 特化模板函数为 Nation 类型的实现
+
 template<>
 Nation convertToT<Nation>(const std::string& value);
 
-// // 特化模板函数为 Customer 类型的实现
+
 template<>
 Customer convertToT<Customer>(const std::string& value);
 
-// // 特化模板函数为 LineItem 类型的实现
+
 template<>
 LineItem convertToT<LineItem>(const std::string& value);
 
-// // 特化模板函数为 Orders 类型的实现
+
 template<>
 Orders convertToT<Orders>(const std::string& value);
 
-// // 特化模板函数为 Part 类型的实现
+
 template<>
 Part convertToT<Part>(const std::string& value);
 
-// // 特化模板函数为 PartSupp 类型的实现
+
 template<>
 PartSupp convertToT<PartSupp>(const std::string& value);
 
-// // 特化模板函数为 Region 类型的实现
+
 template<>
 Region convertToT<Region>(const std::string& value);
 
-// // 特化模板函数为 Supplier 类型的实现
+
 template<>
 Supplier convertToT<Supplier>(const std::string& value);
 
-// 定义一个模板函数，用于将特定类型转换为字符串 -----------------------------------------------------------
+// new convertToT function for q14
+template<>
+Revenue0 convertToT<Revenue0>(const std::string& value);
 #endif // STRUCTS_H

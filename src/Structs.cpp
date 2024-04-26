@@ -180,3 +180,19 @@ Supplier convertToT<Supplier>(const std::string& value) {
 
     return s;
 }
+
+
+// 特化模板函数为 Revenue0 类型
+template<>
+Revenue0 convertToT<Revenue0>(const std::string& value) {
+    std::istringstream iss(value);
+    Revenue0 r;
+    std::string part;
+
+    std::getline(iss, part, '|');
+    r.supplier_no = std::stoi(part);
+    std::getline(iss, part, '|');
+    r.total_revenue = std::stod(part);
+
+    return r;
+}

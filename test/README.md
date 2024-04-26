@@ -120,3 +120,12 @@ cpp文件使用
 std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 ```
 
+# About psql
+
+record the time of psql
+```
+EXPLAIN ANALYZE
+```
+
+## 缓存数据表
+先运行一遍sql文件,将数据表缓存
