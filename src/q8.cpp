@@ -9,6 +9,7 @@
 #include "Structs.h"
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 int extractYear(const std::string& dateStr) {
     // Assuming dateStr is in the format "YYYY-MM-DD"
@@ -32,6 +33,9 @@ void q8() {
     customerTable.importData("../data/customer.tbl");
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& parts = partTable.getData();
@@ -75,6 +79,11 @@ void q8() {
             }
         }
     }
+
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
 
     // Compute market share and output
     std::cout << "Year\tMarket Share\n";

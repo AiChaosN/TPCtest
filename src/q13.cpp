@@ -57,7 +57,7 @@ void q13() {
     
     // time off
     clock_t stop = clock();
-    std::cout << "执行时间13: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
     // Output
     std::cout << "Count of Orders\tNumber of Customers\n";

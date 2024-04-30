@@ -81,7 +81,7 @@ void q20() {
 
     // time off
     clock_t stop = clock();
-    std::cout << "执行时间20: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
     // Output the results
     for (const auto& result : results) {

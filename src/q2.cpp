@@ -11,6 +11,7 @@
 #include "Structs.h"
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 void q2() {
     // begin
@@ -26,6 +27,8 @@ void q2() {
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
 
+    // time
+    clock_t start = clock();
     // from
     auto& parts = partTable.getData();
     auto& suppliers = supplierTable.getData();
@@ -75,6 +78,11 @@ void q2() {
         return std::tie(std::get<0>(b), std::get<2>(a), std::get<1>(a), std::get<3>(a)) <
                std::tie(std::get<0>(a), std::get<2>(b), std::get<1>(b), std::get<3>(b));
     });
+
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
 
     // Selecting the top 100 results
     if (results.size() > 100) {

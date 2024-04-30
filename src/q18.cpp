@@ -87,7 +87,7 @@ void q18() {
 
     // time off
     clock_t stop = clock();
-    std::cout << "执行时间18: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
     // Display top 100 results
     int count = 0;

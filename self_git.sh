@@ -7,8 +7,6 @@ git add query
 
 # 代码部分
 git add src
-git add temp
-git add temp2
 
 git add bin
 git add bitcode
@@ -16,6 +14,7 @@ git add bitcode
 # 测试评估部分
 git add test
 git add tmp_jit
+git add contrast
 
 # 其他部分
 git add help
