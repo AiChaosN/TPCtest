@@ -25,6 +25,7 @@ private:
 
     // hash map
     std::unordered_map<int, T> dataMap;
+    
 public:
     Table() {}
 

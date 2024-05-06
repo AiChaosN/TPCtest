@@ -25,6 +25,7 @@ for file in q*.cpp; do
     # compile each q*.cpp to exe
     start_time=$(date +%s%N)/1000000
     $COMPILER -std=c++17 -I $INCLUDE_DIR $Optimize_level -o "$OUTPUT_DIR/$base_name" $file Structs.cpp || exit 1
+    # $COMPILER -std=c++17 -I $INCLUDE_DIR $Optimize_level -ftime-report -o "$OUTPUT_DIR/$base_name" $file Structs.cpp || exit 1
     echo "$base_name compile to exe end, time: $(($(date +%s%N)/1000000 - start_time))"
 
 done

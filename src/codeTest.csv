@@ -9,12 +9,12 @@ Null answer: ?
 Error answer: x
 unfinish answer: u
 
-xo代表结果少了一倍
+xo答案行数正确.col结果少了一倍(存储问题？)
 
 
 q1, o
 q2, ?
-q3, x
+q3, xo
 q4, xo
 q5, x
 q6, x
@@ -24,7 +24,7 @@ q9, xo
 q10, x
 q11, ?
 q12, xo
-q13, x
+q13, xo
 q14, u
 q15, u
 q16, o

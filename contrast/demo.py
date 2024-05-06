@@ -27,7 +27,7 @@ def calculate_increase_ratios(list1, list2):
             ratios.append(increase)
     return ratios
 
-def plot_lists(data_lists, labels=None, title="Multi-Line Plot", xlabel="X-axis", ylabel="Y-axis"):
+def plot_lists(data_lists, labels=None, title="Multi-Line Plot", xlabel="X-axis", ylabel="Y-axis", plt_name="plot", save=False):
 
     for i, data in enumerate(data_lists):
         if labels and len(labels) == len(data_lists):
@@ -41,6 +41,9 @@ def plot_lists(data_lists, labels=None, title="Multi-Line Plot", xlabel="X-axis"
     if labels:
         plt.legend()
     plt.grid(True)
+    # 保存图片
+    if save:
+        plt.savefig(f"{plt_name}.png")
     plt.show()
 
 
@@ -76,8 +79,9 @@ plot_lists([bin_to_psql_ratios, bitcode_to_psql_ratios],
            labels=["BIN to PSQL", "Bitcode to PSQL"],
            title="Execution Time Increase Ratios",
            xlabel="Query Number",
-           ylabel="Increase Ratio")
-
+           ylabel="Increase Ratio",
+           plt_name="increase_ratios",
+           save=True)
 print("Done!")
 
 
