@@ -55,3 +55,8 @@ void q15() {
     }
 }
 
+int main() {
+    q15();
+    return 0;
+}
+

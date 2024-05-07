@@ -7,6 +7,7 @@
 // Include necessary headers
 #include "Table.h"
 #include "Structs.h"
+#include <ctime>
 
 void q21() {
     // Load data for suppliers, lineitems, orders, and nations
@@ -20,6 +21,9 @@ void q21() {
     lineItemTable.importData("../data/lineitem.tbl");
     ordersTable.importData("../data/orders.tbl");
     nationTable.importData("../data/nation.tbl");
+
+    // time
+    clock_t start = clock();
 
     // Alias for easier access
     auto& suppliers = supplierTable.getData();
@@ -80,6 +84,10 @@ void q21() {
         return a.second == b.second ? a.first < b.first : a.second > b.second;
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output 
     std::cout << "Supplier Name\tNumWait\n";
     int count = 0;
@@ -87,5 +95,10 @@ void q21() {
         if (++count > 100) break;
         std::cout << result.first << "\t" << result.second << std::endl;
     }
+}
+
+int main() {
+    q21();
+    return 0;
 }
 

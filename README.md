@@ -2,15 +2,20 @@
 ```
 TPCtest
 ├── README.md
-├── TPC-H V3.0.1    ptch数据生成，sql生成模块
-├── build_support   一些脚本
-├── data            数据文件 .tbl 格式
-├── help            参考资料
-├── other           老旧代码，暂不使用
-├── query           查询文件 .sql 格式
-├── self_git.sh     git提交脚本 $1 提交信息 $2 push?
-├── src             c++代码
-└── test            psql测试
+├── TPC-H V3.0.1        # TPC-H测试数据生成工具
+├── bin                 # 二进制文件    
+├── bitcode             # 位码文件
+├── build_support       # 编译支持
+├── contrast            
+├── data                # 数据文件
+├── help
+├── jitTest
+├── other               # 历史遗留文件
+├── query               # sql文件
+├── self_git.sh
+├── src                 # 源代码
+├── test                # psql测试
+└── tmp_jit             # 临时文件
 ```
 
 # Outlines

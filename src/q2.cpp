@@ -11,6 +11,7 @@
 #include "Structs.h"
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 bool endsWith(const std::string& fullString, const std::string& ending) {
     if (fullString.length() >= ending.length()) {
@@ -34,6 +35,8 @@ void q2() {
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
 
+    // time
+    clock_t start = clock();
     // from
     auto& parts = partTable.getData();
     auto& suppliers = supplierTable.getData();
@@ -86,12 +89,11 @@ void q2() {
         return std::tie(std::get<0>(b), std::get<2>(a), std::get<1>(a), std::get<3>(a)) <
                std::tie(std::get<0>(a), std::get<2>(b), std::get<1>(b), std::get<3>(b));
     });
-    /*
-    // Selecting the top 100 results
-    if (results.size() > 100) {
-        results.resize(100);
-    }
-    */
+
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Print results
     std::cout << "q2 results\n";
     for (auto& item : results) {
@@ -99,5 +101,10 @@ void q2() {
                   << std::get<3>(item) << "\t" << std::get<4>(item) << "\t" << std::get<5>(item) << "\t"
                   << std::get<6>(item) << "\t" << std::get<7>(item) << std::endl;
     }
+}
+
+int main() {
+    q2();
+    return 0;
 }
 

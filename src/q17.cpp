@@ -7,6 +7,7 @@
 
 #include "Table.h"
 #include "Structs.h"
+#include <ctime>
 
 void q17() {
     // Import 
@@ -16,6 +17,9 @@ void q17() {
     // Load data
     partTable.importData("../data/part.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& parts = partTable.getData();
@@ -53,7 +57,16 @@ void q17() {
     // Calculate average yearly price
     double avgYearly = totalExtendedPrice / 7.0;
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output result
     std::cout << "Average Yearly: " << avgYearly << std::endl;
+}
+
+int main() {
+    q17();
+    return 0;
 }
 

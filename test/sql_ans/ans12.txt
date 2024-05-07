@@ -1,0 +1,8 @@
+Timing is on.
+ l_shipmode | high_line_count | low_line_count 
+------------+-----------------+----------------
+ REG AIR    |              14 |             14
+ SHIP       |              16 |             16
+(2 rows)
+
+Time: 2.335 ms

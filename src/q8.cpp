@@ -6,6 +6,14 @@
 
 #include "Table.h" // 需要先定义相关的表和结构体
 #include "Structs.h"
+// 扩展的工具函数
+#include "Tool.h"
+#include <ctime>
+
+int extractYear(const std::string& dateStr) {
+    // Assuming dateStr is in the format "YYYY-MM-DD"
+    return std::stoi(dateStr.substr(0, 4));
+}
 
 void q8() {
     // 导入表数据
@@ -25,7 +33,10 @@ void q8() {
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
 
-    // 获取数据引用
+    // time
+    clock_t start = clock();
+
+    // from
     auto& parts = partTable.getData();
     auto& suppliers = supplierTable.getData();
     auto& lineitems = lineItemTable.getData();
@@ -84,6 +95,10 @@ void q8() {
         }
     }
 
+    / time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // 输出结果
     std::cout << "q8 results\n";
     std::cout << "O_Year\tMarket_Share\n";
@@ -93,4 +108,9 @@ void q8() {
     }
 }
 
+
+int main() {
+    q8();
+    return 0;
+}
 

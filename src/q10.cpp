@@ -8,8 +8,9 @@
 
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+// 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 void q10() {
     // Import the tables
@@ -23,6 +24,10 @@ void q10() {
     lineItemTable.importData("../data/lineitem.tbl");
     nationTable.importData("../data/nation.tbl");
 
+    // time
+    clock_t start = clock();
+
+    // from
     auto& customers = customerTable.getData();
     auto& orders = ordersTable.getData();
     auto& lineitems = lineItemTable.getData();
@@ -72,6 +77,10 @@ void q10() {
         return std::get<2>(a) > std::get<2>(b);
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Output the results
     std::cout << "Results for q10" << std::endl;
     std::cout << "C_CustKey\tC_Name\tRevenue\tC_AcctBal\tN_Name\tC_Address\tC_Phone\tC_Comment\n";
@@ -82,3 +91,7 @@ void q10() {
     }
 }
 
+int main() {
+    q10();
+    return 0;
+}

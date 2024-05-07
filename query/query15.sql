@@ -18,5 +18,5 @@ where
 order by
 	s_suppkey;
 
-drop view revenue0;
-where rownum <= -1;
+-- drop view revenue0;
+-- where rownum <= -1;

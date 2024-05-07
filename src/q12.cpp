@@ -8,8 +8,10 @@
 
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
+
+// 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 void q12() {
     // Import the tables
@@ -20,7 +22,10 @@ void q12() {
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
 
-    // Access data
+    // time
+    clock_t start = clock();
+
+    // from
     auto& orders = ordersTable.getData();
     auto& lineitems = lineItemTable.getData();
 
@@ -55,6 +60,10 @@ void q12() {
         }
     }
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    
     // Sorting the results (C++ maps are sorted by key by default)
     // Output the results
     std::cout << "results for Q12:\n";
@@ -64,5 +73,10 @@ void q12() {
                   << std::get<0>(res.second) << "\t"
                   << std::get<1>(res.second) << std::endl;
     }
+}
+
+int main() {
+    q12();
+    return 0;
 }
 

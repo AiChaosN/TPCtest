@@ -1,20 +1,6 @@
 #include "Structs.h"
 #include <sstream>
 
-// 特化模板函数为 MyStruct 类型的实现
-template<>
-MyStruct convertToT<MyStruct>(const std::string& value) {
-    std::istringstream iss(value);
-    MyStruct ms;
-
-    std::string part;
-    std::getline(iss, part, '|');
-    ms.id = std::stoi(part);
-    std::getline(iss, ms.name, '|');
-    return ms;
-}
-
-
 // 特化模板函数为 Nation 类型
 template<>
 Nation convertToT<Nation>(const std::string& value) {
@@ -193,4 +179,20 @@ Supplier convertToT<Supplier>(const std::string& value) {
     std::getline(iss, s.S_COMMENT, '|');
 
     return s;
+}
+
+
+// 特化模板函数为 Revenue0 类型
+template<>
+Revenue0 convertToT<Revenue0>(const std::string& value) {
+    std::istringstream iss(value);
+    Revenue0 r;
+    std::string part;
+
+    std::getline(iss, part, '|');
+    r.supplier_no = std::stoi(part);
+    std::getline(iss, part, '|');
+    r.total_revenue = std::stod(part);
+
+    return r;
 }

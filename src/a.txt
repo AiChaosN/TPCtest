@@ -1,0 +1,1 @@
+clang++ -Wall -std=c++20 -o demo Structs.cpp q13.cpp -ftime-trace

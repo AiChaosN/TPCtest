@@ -4,10 +4,10 @@
 
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
 
 #include "Tool.h"
 
+#include <ctime>
 
 void q1() {
 
@@ -19,6 +19,9 @@ void q1() {
     // from
     auto& lineitem = lineitemTable.getData();
 
+
+    // time
+    clock_t start = clock();
 
     //where
     std::vector<LineItem> lineitem_new;
@@ -76,8 +79,11 @@ void q1() {
 
 
     //results是啥类型
-    std::cout << "数据类型:\t" <<  typeName<decltype(results)>() << std::endl;
+    std::cout << "typeName:\t" <<  typeName<decltype(results)>() << std::endl;
 
+    clock_t stop = clock(); // 记录结束时间
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    
     //print
     for (auto& item : results) {
         char col1 = std::get<0>(item);
@@ -89,4 +95,9 @@ void q1() {
         << agg.avg_disc << " " << agg.count_order << std::endl;
     }
     
+}
+
+int main() {
+    q1();
+    return 0;
 }
