@@ -9,9 +9,9 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 void q2() {
     // begin
@@ -27,6 +27,8 @@ void q2() {
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
 
+    // time
+    clock_t start = clock();
     // from
     auto& parts = partTable.getData();
     auto& suppliers = supplierTable.getData();
@@ -42,7 +44,9 @@ void q2() {
                 for (auto& r : regions) {
                     if (ps.PS_PARTKEY == s.S_SUPPKEY && s.S_NATIONKEY == n.N_NATIONKEY &&
                         n.N_REGIONKEY == r.R_REGIONKEY && r.R_NAME == "ASIA") {
-                        minSupplyCost = std::min(minSupplyCost, ps.PS_SUPPLYCOST);
+                        if (ps.PS_SUPPLYCOST < minSupplyCost) {
+                            minSupplyCost = ps.PS_SUPPLYCOST;
+                        }
                     }
                 }
             }
@@ -75,6 +79,11 @@ void q2() {
                std::tie(std::get<0>(a), std::get<2>(b), std::get<1>(b), std::get<3>(b));
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
+
     // Selecting the top 100 results
     if (results.size() > 100) {
         results.resize(100);
@@ -87,5 +96,10 @@ void q2() {
                   << std::get<3>(item) << "\t" << std::get<4>(item) << "\t" << std::get<5>(item) << "\t"
                   << std::get<6>(item) << "\t" << std::get<7>(item) << std::endl;
     }
+}
+
+int main() {
+    q2();
+    return 0;
 }
 

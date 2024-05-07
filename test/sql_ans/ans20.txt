@@ -1,0 +1,6 @@
+Timing is on.
+ s_name | s_address 
+--------+-----------
+(0 rows)
+
+Time: 135.460 ms

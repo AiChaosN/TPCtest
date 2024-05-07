@@ -1,0 +1,10 @@
+Timing is on.
+        supp_nation        |        cust_nation        | l_year |   revenue   
+---------------------------+---------------------------+--------+-------------
+ ARGENTINA                 | IRAQ                      |   1995 | 317183.2508
+ ARGENTINA                 | IRAQ                      |   1996 | 183294.4014
+ IRAQ                      | ARGENTINA                 |   1995 | 121823.7534
+ IRAQ                      | ARGENTINA                 |   1996 |  64207.8110
+(4 rows)
+
+Time: 3.945 ms

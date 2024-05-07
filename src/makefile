@@ -1,5 +1,5 @@
 # 定义编译器
-CXX = g++
+CXX = clang++
 
 # 定义编译器标志
 CXXFLAGS = -Wall -std=c++20
@@ -8,14 +8,14 @@ CXXFLAGS = -Wall -std=c++20
 TARGET = demo
 
 # 定义源文件
-SRCS = main.cpp Table.cpp Structs.cpp q*.cpp
+SRCS = Structs.cpp q13.cpp
 
 # 默认目标
 all: $(TARGET)
 
 # 构建目标可执行文件
 $(TARGET): $(SRCS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRCS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRCS) -ftime-trace
 
 # 清理目标
 clean:

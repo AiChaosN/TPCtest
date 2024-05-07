@@ -7,9 +7,14 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
+
+int extractYear(const std::string& dateStr) {
+    // Assuming dateStr is in the format "YYYY-MM-DD"
+    return std::stoi(dateStr.substr(0, 4));
+}
 
 void q8() {
     // begin
@@ -28,6 +33,9 @@ void q8() {
     customerTable.importData("../data/customer.tbl");
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& parts = partTable.getData();
@@ -72,6 +80,11 @@ void q8() {
         }
     }
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
+
     // Compute market share and output
     std::cout << "Year\tMarket Share\n";
     for (auto& [year, totalVolume] : totalVolumeByYear) {
@@ -81,8 +94,8 @@ void q8() {
     }
 }
 
-int extractYear(const std::string& dateStr) {
-    // Assuming dateStr is in the format "YYYY-MM-DD"
-    return std::stoi(dateStr.substr(0, 4));
+int main() {
+    q8();
+    return 0;
 }
 

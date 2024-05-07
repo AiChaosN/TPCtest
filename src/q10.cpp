@@ -7,9 +7,9 @@
 // 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
-#include "q.h"
 // 扩展的工具函数
 #include "Tool.h"
+#include <ctime>
 
 void q10() {
     // begin
@@ -22,6 +22,9 @@ void q10() {
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
     nationTable.importData("../data/nation.tbl");
+
+    // time
+    clock_t start = clock();
 
     // from
     auto& customers = customerTable.getData();
@@ -58,7 +61,7 @@ void q10() {
     for (auto& l : lineitems) {
         if (ordersMap.count(l.L_ORDERKEY) && l.L_RETURNFLAG == 'R') {
             Orders& o = ordersMap[l.L_ORDERKEY];
-            Customer& c = customers[o.O_CUSTKEY];
+            const Customer& c = customers[o.O_CUSTKEY];
             Nation& n = nationsMap[c.C_NATIONKEY];
             customerRevenue[c.C_CUSTKEY].revenue += l.L_EXTENDEDPRICE * (1 - l.L_DISCOUNT);
             customerRevenue[c.C_CUSTKEY].name = c.C_NAME;
@@ -76,6 +79,10 @@ void q10() {
         return a.second.revenue > b.second.revenue; // Descending order
     });
 
+    // time off
+    clock_t stop = clock();
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+
     // Select top 20 results
     int count = 0;
     for (const auto& [custKey, info] : sortedResults) {
@@ -85,3 +92,7 @@ void q10() {
     }
 }
 
+int main() {
+    q10();
+    return 0;
+}
