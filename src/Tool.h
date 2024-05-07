@@ -12,3 +12,4 @@ std::string typeName() {
     };
     return (status == 0) ? res.get() : "error occurred";
 }
+

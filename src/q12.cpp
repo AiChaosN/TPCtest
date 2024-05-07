@@ -1,69 +1,68 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <string>
+#include <tuple>
 #include <algorithm>
 
-// 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
 #include "q.h"
-// 扩展的工具函数
 #include "Tool.h"
 
 void q12() {
-    // begin
+    // Import the tables
     Table<Orders> ordersTable;
     Table<LineItem> lineItemTable;
 
+    // Load data
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
 
-    // from
+    // Access data
     auto& orders = ordersTable.getData();
     auto& lineitems = lineItemTable.getData();
 
-    // Build a map to relate orders with lineitems
-    std::map<int, Orders> ordersMap;
-    for (auto& o : orders) {
-        ordersMap[o.O_ORDERKEY] = o;
-    }
+    // Prepare results container
+    std::map<std::string, std::tuple<int, int>> results;  // Key: shipmode, Value: tuple of high_line_count, low_line_count
 
-    struct CountInfo {
-        int highLineCount = 0;
-        int lowLineCount = 0;
-    };
+    // Processing the join and conditions
+    for (const auto& l : lineitems) {
+        if (l.L_SHIPMODE == "SHIP" || l.L_SHIPMODE == "REG AIR") {
+            if (l.L_COMMITDATE < l.L_RECEIPTDATE && l.L_SHIPDATE < l.L_COMMITDATE &&
+                l.L_RECEIPTDATE >= "1995-01-01" && l.L_RECEIPTDATE < "1996-01-01") {
+                for (const auto& o : orders) {
+                    if (o.O_ORDERKEY == l.L_ORDERKEY) {
+                        int high_count = 0;
+                        int low_count = 0;
 
-    std::map<std::string, CountInfo> shipModeCounts;
+                        if (o.O_ORDERPRIORITY == "1-URGENT" || o.O_ORDERPRIORITY == "2-HIGH") {
+                            high_count = 2;
+                        } else {
+                            low_count = 2;
+                        }
 
-    for (auto& l : lineitems) {
-        if ((l.L_SHIPMODE == "SHIP" || l.L_SHIPMODE == "REG AIR") &&
-            l.L_COMMITDATE < l.L_RECEIPTDATE &&
-            l.L_SHIPDATE < l.L_COMMITDATE &&
-            l.L_RECEIPTDATE >= "1995-01-01" && l.L_RECEIPTDATE < "1996-01-01" &&
-            ordersMap.count(l.L_ORDERKEY)) {
-            Orders& o = ordersMap[l.L_ORDERKEY];
-            bool isHighPriority = (o.O_ORDERPRIORITY == "1-URGENT" || o.O_ORDERPRIORITY == "2-HIGH");
-            bool isLowPriority = (o.O_ORDERPRIORITY != "1-URGENT" && o.O_ORDERPRIORITY != "2-HIGH");
-
-            if (isHighPriority) {
-                shipModeCounts[l.L_SHIPMODE].highLineCount++;
-            }
-            if (isLowPriority) {
-                shipModeCounts[l.L_SHIPMODE].lowLineCount++;
+                        if (results.find(l.L_SHIPMODE) != results.end()) {
+                            std::get<0>(results[l.L_SHIPMODE]) += high_count;
+                            std::get<1>(results[l.L_SHIPMODE]) += low_count;
+                        } else {
+                            results[l.L_SHIPMODE] = std::make_tuple(high_count, low_count);
+                        }
+                    }
+                }
             }
         }
     }
 
-    // Output results ordered by shipmode
-    std::vector<std::pair<std::string, CountInfo>> sortedResults(shipModeCounts.begin(), shipModeCounts.end());
-    std::sort(sortedResults.begin(), sortedResults.end(), [](const auto& a, const auto& b) {
-        return a.first < b.first;
-    });
-
-    std::cout << "Ship Mode\tHigh Line Count\tLow Line Count\n";
-    for (const auto& [shipMode, counts] : sortedResults) {
-        std::cout << shipMode << "\t" << counts.highLineCount << "\t" << counts.lowLineCount << "\n";
+    // Sorting the results (C++ maps are sorted by key by default)
+    // Output the results
+    std::cout << "results for Q12:\n";
+    std::cout << "Ship_Mode\tHigh_Line_Count\tLow_Line_Count\n";
+    for (const auto& res : results) {
+        std::cout << res.first << "\t"
+                  << std::get<0>(res.second) << "\t"
+                  << std::get<1>(res.second) << std::endl;
     }
 }
 

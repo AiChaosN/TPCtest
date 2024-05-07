@@ -1,18 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <unordered_map>
 #include <string>
+#include <tuple>
 #include <algorithm>
 
-// 表的头文件，结构体的头文件
 #include "Table.h"
 #include "Structs.h"
 #include "q.h"
-// 扩展的工具函数
 #include "Tool.h"
 
 void q10() {
-    // begin
+    // Import the tables
     Table<Customer> customerTable;
     Table<Orders> ordersTable;
     Table<LineItem> lineItemTable;
@@ -23,65 +23,62 @@ void q10() {
     lineItemTable.importData("../data/lineitem.tbl");
     nationTable.importData("../data/nation.tbl");
 
-    // from
     auto& customers = customerTable.getData();
     auto& orders = ordersTable.getData();
     auto& lineitems = lineItemTable.getData();
     auto& nations = nationTable.getData();
 
-    // Join logic using maps for efficient lookups
-    std::map<int, Orders> ordersMap;
-    for (auto& o : orders) {
-        if (o.O_ORDERDATE >= "1994-05-01" && o.O_ORDERDATE < "1994-08-01") {
-            ordersMap[o.O_ORDERKEY] = o;
+    // Create a nation map for quick access
+    std::unordered_map<int, std::string> nationMap;
+    for (const auto& n : nations) {
+        nationMap[n.N_NATIONKEY] = n.N_NAME;
+    }
+
+    // Join and where conditions
+    std::vector<std::tuple<int, std::string, double, double, std::string, std::string, std::string, std::string>> results;
+    for (const auto& c : customers) {
+        for (const auto& o : orders) {
+            if (c.C_CUSTKEY == o.O_CUSTKEY &&
+                o.O_ORDERDATE >= "1994-05-01" &&
+                o.O_ORDERDATE < "1994-08-01") { // 3 months after 1994-05-01
+                for (const auto& l : lineitems) {
+                    if (l.L_ORDERKEY == o.O_ORDERKEY && l.L_RETURNFLAG == 'R') {
+                        double revenue = l.L_EXTENDEDPRICE * (1 - l.L_DISCOUNT);
+                        results.emplace_back(c.C_CUSTKEY, c.C_NAME, revenue, c.C_ACCTBAL,
+                                             nationMap[c.C_NATIONKEY], c.C_ADDRESS, c.C_PHONE, c.C_COMMENT);
+                    }
+                }
+            }
         }
     }
 
-    std::map<int, Nation> nationsMap;
-    for (auto& n : nations) {
-        nationsMap[n.N_NATIONKEY] = n;
+    // Group by and sum revenues
+    std::map<std::tuple<int, std::string, double, std::string, std::string, std::string, std::string>, double> groupedResults;
+    for (const auto& r : results) {
+        auto key = std::make_tuple(std::get<0>(r), std::get<1>(r), std::get<3>(r), std::get<4>(r),
+                                   std::get<5>(r), std::get<6>(r), std::get<7>(r));
+        groupedResults[key] += std::get<2>(r);
     }
 
-    // Aggregate data
-    struct CustomerInfo {
-        double revenue = 0;
-        std::string name;
-        double acctbal;
-        std::string phone;
-        std::string nationName;
-        std::string address;
-        std::string comment;
-    };
-
-    std::map<int, CustomerInfo> customerRevenue;
-
-    for (auto& l : lineitems) {
-        if (ordersMap.count(l.L_ORDERKEY) && l.L_RETURNFLAG == 'R') {
-            Orders& o = ordersMap[l.L_ORDERKEY];
-            const Customer& c = customers[o.O_CUSTKEY];
-            Nation& n = nationsMap[c.C_NATIONKEY];
-            customerRevenue[c.C_CUSTKEY].revenue += l.L_EXTENDEDPRICE * (1 - l.L_DISCOUNT);
-            customerRevenue[c.C_CUSTKEY].name = c.C_NAME;
-            customerRevenue[c.C_CUSTKEY].acctbal = c.C_ACCTBAL;
-            customerRevenue[c.C_CUSTKEY].phone = c.C_PHONE;
-            customerRevenue[c.C_CUSTKEY].nationName = n.N_NAME;
-            customerRevenue[c.C_CUSTKEY].address = c.C_ADDRESS;
-            customerRevenue[c.C_CUSTKEY].comment = c.C_COMMENT;
-        }
+    // Prepare final sorted results
+    std::vector<std::tuple<int, std::string, double, double, std::string, std::string, std::string, std::string>> finalResults;
+    for (const auto& grp : groupedResults) {
+        finalResults.emplace_back(std::get<0>(grp.first), std::get<1>(grp.first), grp.second, std::get<2>(grp.first),
+                                  std::get<3>(grp.first), std::get<4>(grp.first), std::get<5>(grp.first), std::get<6>(grp.first));
     }
 
-    // Sorting results by revenue
-    std::vector<std::pair<int, CustomerInfo>> sortedResults(customerRevenue.begin(), customerRevenue.end());
-    std::sort(sortedResults.begin(), sortedResults.end(), [](const auto& a, const auto& b) {
-        return a.second.revenue > b.second.revenue; // Descending order
+    // Sort results by revenue descending
+    std::sort(finalResults.begin(), finalResults.end(), [](const auto& a, const auto& b) {
+        return std::get<2>(a) > std::get<2>(b);
     });
 
-    // Select top 20 results
-    int count = 0;
-    for (const auto& [custKey, info] : sortedResults) {
-        if (++count > 20) break;
-        std::cout << custKey << ", " << info.name << ", " << info.revenue << ", " << info.acctbal << ", "
-                  << info.nationName << ", " << info.address << ", " << info.phone << ", " << info.comment << std::endl;
+    // Output the results
+    std::cout << "Results for q10" << std::endl;
+    std::cout << "C_CustKey\tC_Name\tRevenue\tC_AcctBal\tN_Name\tC_Address\tC_Phone\tC_Comment\n";
+    for (const auto& res : finalResults) {
+        std::cout << std::get<0>(res) << "\t" << std::get<1>(res) << "\t" << std::get<2>(res) << "\t"
+                  << std::get<3>(res) << "\t" << std::get<4>(res) << "\t" << std::get<5>(res) << "\t"
+                  << std::get<6>(res) << "\t" << std::get<7>(res) << std::endl;
     }
 }
 

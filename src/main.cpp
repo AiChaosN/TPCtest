@@ -135,23 +135,27 @@ int main() {
     */
 
     delimiter();
-    /*q2();
+    q2();
     delimiter();
+
     q4();
     delimiter();
     q6();
     delimiter();
+    q8();
+    delimiter();
     q10();
     delimiter();
     q12();
+    /*
     delimiter();
     q16();
     delimiter();
     q18();
     delimiter();
     q20();
-    delimiter();*/
-    q8();
     delimiter();
+
+    */
     return 0;
 }
