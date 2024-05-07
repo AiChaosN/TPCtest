@@ -95,7 +95,7 @@ void q8() {
         }
     }
 
-    / time off
+    // time off
     clock_t stop = clock();
     std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
