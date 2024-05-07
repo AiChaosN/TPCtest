@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ./compilation.sh clang
+# ./compilation.sh g++
 
 # init compiler and optimize level
 COMPILER=g++
