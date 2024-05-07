@@ -23,12 +23,12 @@ void q6() {
     // from
     auto& lineitems = lineItemTable.getData();
 
-    double totalRevenue = 0.0;
+    float totalRevenue = 0.0;
 
     // Process each line item
     for (auto& l : lineitems) {
         if (l.L_SHIPDATE >= "1995-01-01" && l.L_SHIPDATE < "1996-01-01" &&
-            l.L_DISCOUNT >= (0.02 - 0.01) && l.L_DISCOUNT <= (0.02 + 0.01) &&
+            l.L_DISCOUNT >= 0.01 && l.L_DISCOUNT <= 0.03 &&
             l.L_QUANTITY < 24) {
             totalRevenue += l.L_EXTENDEDPRICE * l.L_DISCOUNT;
         }
@@ -39,6 +39,7 @@ void q6() {
     std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
 
     // Output the results
+    std::cout << "q6 results:" << std::endl;
     std::cout << "Total Revenue: " << totalRevenue << std::endl;
 }
 

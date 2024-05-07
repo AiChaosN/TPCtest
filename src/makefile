@@ -5,10 +5,10 @@ CXX = clang++
 CXXFLAGS = -Wall -std=c++20
 
 # 定义目标可执行文件
-TARGET = demo
+TARGET = demo12
 
 # 定义源文件
-SRCS = Structs.cpp q13.cpp
+SRCS = Structs.cpp q12.cpp
 
 # 默认目标
 all: $(TARGET)
