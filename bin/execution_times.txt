@@ -1,17 +1,20 @@
 Execution times:
-q1 exe time: 3.139 ms
-q2 exe time: 45.894 ms
-q3 q4 exe time: 0.29 ms
-q5 q6 exe time: 0.097 ms
-q7 exe time: 7.893 ms
-q8 exe time: 5.807 ms
-q9 exe time: 0.395 ms
-q10 exe time: 0.18 ms
-q11 exe time: 0.027 ms
-q12 exe time: 0.769 ms
-q13 q16 exe time: 0.066 ms
-q17 exe time: 1.082 ms
-q18 exe time: 0.275 ms
-q19 exe time: 1.215 ms
-q20 exe time: 0.225 ms
-q21 exe time: 0.149 ms
+q1 exe time: 4.113 ms
+q2 exe time: 244.262 ms
+q3 exe time: 0.746 ms
+q4 exe time: 0.194 ms
+q5 exe time: 1.089 ms
+q6 exe time: 0.149 ms
+q7 exe time: 5.66 ms
+q8 exe time: 0.01 ms
+q9 exe time: 0.622 ms
+q10 exe time: 0.658 ms
+q11 exe time: 0.026 ms
+q12 exe time: 0.234 ms
+q13 exe time: 0.087 ms
+q16 exe time: 0.082 ms
+q17 exe time: 1.117 ms
+q18 exe time: 0.453 ms
+q19 exe time: 0.839 ms
+q20 exe time: 0.232 ms
+q21 exe time: 0.124 ms

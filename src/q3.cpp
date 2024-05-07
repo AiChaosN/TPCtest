@@ -20,6 +20,10 @@ void q3() {
     ordersTable.importData("../data/orders.tbl");
     lineItemTable.importData("../data/lineitem.tbl");
 
+    // time
+    clock_t start = clock();
+
+
     // Prepare data
     auto& customers = customerTable.getData();
     auto& orders = ordersTable.getData();
@@ -66,6 +70,9 @@ void q3() {
         return std::get<2>(a) < std::get<2>(b);
     });
 
+    clock_t stop = clock(); // 记录结束时间
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    
     // Print results
     std::cout << "---------print results-------\n" << std::endl;
     for (auto& [orderKey, revenue, orderDate, shipPriority] : results) {

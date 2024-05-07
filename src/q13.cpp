@@ -57,11 +57,10 @@ void q13() {
         }
         return a.second > b.second;  // Descending order of customer count
     });
-
-    // Stop time measurement
-    clock_t stop = clock();
-    std::cout << "Execution time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
-
+ 
+    clock_t stop = clock(); // 记录结束时间
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    
     // Print results
     std::cout << "Count of Orders\tNumber of Customers\n";
     for (const auto& result : sortedResults) {

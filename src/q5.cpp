@@ -24,6 +24,8 @@ void q5() {
     nationTable.importData("../data/nation.tbl");
     regionTable.importData("../data/region.tbl");
 
+    clock_t start = clock(); 
+
     // 获取数据引用
     auto& customers = customerTable.getData();
     auto& orders = ordersTable.getData();
@@ -85,6 +87,9 @@ void q5() {
         return a.second > b.second;
     });
 
+    clock_t stop = clock(); // 记录结束时间
+    std::cout << "exe time: " << double(stop - start) / CLOCKS_PER_SEC * 1000 << " ms" << std::endl;
+    
     // 打印结果
     for (auto& [name, revenue] : results) {
         std::cout << name << "\t" << revenue << std::endl;
