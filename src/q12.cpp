@@ -43,9 +43,9 @@ void q12() {
                         int low_count = 0;
 
                         if (o.O_ORDERPRIORITY == "1-URGENT" || o.O_ORDERPRIORITY == "2-HIGH") {
-                            high_count = 2;
+                            high_count = 1;
                         } else {
-                            low_count = 2;
+                            low_count = 1;
                         }
 
                         if (results.find(l.L_SHIPMODE) != results.end()) {

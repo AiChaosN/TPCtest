@@ -46,8 +46,9 @@ sudo -u postgres psql -p 5432 -d tpch -f ./create_table.sql
 
 由于tbl文件最后有'/'符号导致psql无法读取,需要将其删除，
 创建tbl文件夹,并将tbl文件移动到tbl文件夹下。
-运行以下代码来进行正则替换：
+在data目录运行以下代码来进行正则替换：
 ```
+rm -rf tbl
 for i in `ls *.tbl`
 do
  name="tbl/$i"
@@ -58,16 +59,16 @@ do
 done
 ```
 
-导入数据 
+导入数据 (使用绝对路径)
 ```
-\copy lineitem FROM '~/mylab/9992/TPCtest/data/tbl/lineitem.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy orders FROM '~/mylab/9992/TPCtest/data/tbl/orders.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy customer FROM '~/mylab/9992/TPCtest/data/tbl/customer.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy part FROM '~/mylab/9992/TPCtest/data/tbl/part.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy partsupp FROM '~/mylab/9992/TPCtest/data/tbl/partsupp.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy supplier FROM '~/mylab/9992/TPCtest/data/tbl/supplier.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy nation FROM '~/mylab/9992/TPCtest/data/tbl/nation.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
-\copy region FROM '~/mylab/9992/TPCtest/data/tbl/region.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy lineitem FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/lineitem.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy orders FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/orders.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy customer FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/customer.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy part FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/part.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy partsupp FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/partsupp.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy supplier FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/supplier.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy nation FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/nation.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
+\copy region FROM '/home/aichaos/mylab/9992/TPCtest/data/tbl/region.tbl' WITH (FORMAT csv, DELIMITER '|', HEADER false);
 ```
 
 导入关系在dss.ri文件中
@@ -129,3 +130,14 @@ EXPLAIN ANALYZE
 
 ## 缓存数据表
 先运行一遍sql文件,将数据表缓存
+
+
+
+# PSQL configeration
+max_parallel_workers_per_gather = 0
+jit = off
+
+清除缓存：
+DISCARD ALL;
+查询分析：
+EXPLAIN ANALYZE

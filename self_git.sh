@@ -2,7 +2,7 @@
 git add build_support
 
 # 数据部分
-git add data
+# git add data
 git add query
 
 # 代码部分

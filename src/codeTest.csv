@@ -12,25 +12,25 @@ unfinish answer: u
 xo答案行数正确.col结果少了一倍(存储问题？)
 
 
-q1, o
-q2, ?
-q3, xo
-q4, xo
-q5, x
-q6, x
-q7, xo
-q8, x
-q9, xo
-q10, x
-q11, ?
-q12, xo
-q13, xo
+q1, o       +
+q2, ?       
+q3, xo      
+q4, xo      +
+q5, x       +
+q6, x       +
+q7, xo      
+q8, x       
+q9, xo      
+q10, x      
+q11, ?      +
+q12, xo     
+q13, xo     +
 q14, u
 q15, u
-q16, o
-q17, ?
-q18, ?
-q19, o
-q20, ?
-q21, ?
-q22, u
+q16, o      +
+q17, ?      
+q18, ?      +
+q19, o      
+q20, ?      +
+q21, ?      
+q22, u      

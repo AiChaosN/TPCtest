@@ -1,0 +1,35 @@
+Timing is on.
+DISCARD ALL
+Time: 2.068 ms
+                                                                       QUERY PLAN                                                                        
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=375467.37..376252.59 rows=314085 width=44) (actual time=13516.880..13518.543 rows=11507 loops=1)
+   Sort Key: (sum((lineitem.l_extendedprice * ('1'::numeric - lineitem.l_discount)))) DESC, orders.o_orderdate
+   Sort Method: quicksort  Memory: 1283kB
+   ->  GroupAggregate  (cost=327704.11..337126.66 rows=314085 width=44) (actual time=13488.388..13510.611 rows=11507 loops=1)
+         Group Key: lineitem.l_orderkey, orders.o_orderdate, orders.o_shippriority
+         ->  Sort  (cost=327704.11..328489.33 rows=314085 width=24) (actual time=13488.134..13490.356 rows=30382 loops=1)
+               Sort Key: lineitem.l_orderkey, orders.o_orderdate, orders.o_shippriority
+               Sort Method: quicksort  Memory: 3142kB
+               ->  Hash Join  (cost=57392.51..292583.41 rows=314085 width=24) (actual time=3021.114..13467.458 rows=30382 loops=1)
+                     Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
+                     ->  Seq Scan on lineitem  (cost=0.00..187520.14 rows=3242110 width=16) (actual time=0.195..8905.334 rows=3244304 loops=1)
+                           Filter: (l_shipdate > '1995-03-14'::date)
+                           Rows Removed by Filter: 2756911
+                     ->  Hash  (cost=54866.07..54866.07 rows=145315 width=12) (actual time=3015.025..3015.071 rows=144544 loops=1)
+                           Buckets: 131072  Batches: 4  Memory Usage: 2585kB
+                           ->  Hash Join  (cost=5833.69..54866.07 rows=145315 width=12) (actual time=469.738..2933.181 rows=144544 loops=1)
+                                 Hash Cond: (orders.o_custkey = customer.c_custkey)
+                                 ->  Seq Scan on orders  (cost=0.00..44845.00 rows=729128 width=16) (actual time=0.111..2097.571 rows=726663 loops=1)
+                                       Filter: (o_orderdate < '1995-03-14'::date)
+                                       Rows Removed by Filter: 773337
+                                 ->  Hash  (cost=5460.00..5460.00 rows=29895 width=4) (actual time=469.123..469.135 rows=29752 loops=1)
+                                       Buckets: 32768  Batches: 1  Memory Usage: 1302kB
+                                       ->  Seq Scan on customer  (cost=0.00..5460.00 rows=29895 width=4) (actual time=0.097..450.232 rows=29752 loops=1)
+                                             Filter: (c_mktsegment = 'AUTOMOBILE'::bpchar)
+                                             Rows Removed by Filter: 120248
+ Planning Time: 10.510 ms
+ Execution Time: 13520.554 ms
+(27 rows)
+
+Time: 13548.776 ms (00:13.549)
