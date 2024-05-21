@@ -134,6 +134,12 @@ EXPLAIN ANALYZE
 
 
 # PSQL configeration
+
+查找配置文件
+```
+SHOW config_file;
+```
+
 max_parallel_workers_per_gather = 0
 jit = off
 

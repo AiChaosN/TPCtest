@@ -1,0 +1,23 @@
+q1 compile to .bc, compile time: 662 ms, link time: 19 ms, total time: 681 ms
+q2 compile to .bc, compile time: 926 ms, link time: 26 ms, total time: 952 ms
+q3 compile to .bc, compile time: 922 ms, link time: 26 ms, total time: 948 ms
+q4 compile to .bc, compile time: 598 ms, link time: 17 ms, total time: 615 ms
+q5 compile to .bc, compile time: 1051 ms, link time: 27 ms, total time: 1078 ms
+q6 compile to .bc, compile time: 384 ms, link time: 13 ms, total time: 397 ms
+q7 compile to .bc, compile time: 972 ms, link time: 26 ms, total time: 998 ms
+q8 compile to .bc, compile time: 936 ms, link time: 26 ms, total time: 962 ms
+q9 compile to .bc, compile time: 931 ms, link time: 25 ms, total time: 956 ms
+q10 compile to .bc, compile time: 991 ms, link time: 27 ms, total time: 1018 ms
+q11 compile to .bc, compile time: 697 ms, link time: 18 ms, total time: 715 ms
+q12 compile to .bc, compile time: 564 ms, link time: 18 ms, total time: 582 ms
+q13 compile to .bc, compile time: 617 ms, link time: 17 ms, total time: 634 ms
+File q14.cpp does not exist, skipping...
+File q15.cpp does not exist, skipping...
+File q16.cpp does not exist, skipping...
+q17 compile to .bc, compile time: 536 ms, link time: 17 ms, total time: 553 ms
+File q18.cpp does not exist, skipping...
+q19 compile to .bc, compile time: 503 ms, link time: 17 ms, total time: 520 ms
+File q20.cpp does not exist, skipping...
+q21 compile to .bc, compile time: 902 ms, link time: 23 ms, total time: 925 ms
+File q22.cpp does not exist, skipping...
+Bitcode compilation by clang++ complete.

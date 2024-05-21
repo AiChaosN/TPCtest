@@ -1,3 +1,17 @@
 Execution times:
-q20 exe time: 253.996 ms
-q21 
+q1 exe time: 1.234 ms
+q2 exe time: 241.447 ms
+q3 exe time: 0.287 ms
+q4 exe time: 0.201 ms
+q5 exe time: 1.191 ms
+q6 exe time: 0.105 ms
+q7 exe time: 5.898 ms
+q8 exe time: 0.014 ms
+q9 exe time: 0.424 ms
+q10 exe time: 0.502 ms
+q11 exe time: 0.022 ms
+q12 exe time: 0.248 ms
+q13 exe time: 0.068 ms
+q17 exe time: 0.842 ms
+q19 exe time: 0.593 ms
+q21 exe time: 0.114 ms

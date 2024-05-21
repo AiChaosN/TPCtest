@@ -1,0 +1,23 @@
+q1 compile and link end, compile time: 874 ms, link time: 115 ms, total time: 989 ms
+q2 compile and link end, compile time: 1583 ms, link time: 95 ms, total time: 1678 ms
+q3 compile and link end, compile time: 1513 ms, link time: 118 ms, total time: 1631 ms
+q4 compile and link end, compile time: 790 ms, link time: 106 ms, total time: 896 ms
+q5 compile and link end, compile time: 1514 ms, link time: 106 ms, total time: 1620 ms
+q6 compile and link end, compile time: 472 ms, link time: 107 ms, total time: 579 ms
+q7 compile and link end, compile time: 1571 ms, link time: 110 ms, total time: 1681 ms
+q8 compile and link end, compile time: 1391 ms, link time: 87 ms, total time: 1478 ms
+q9 compile and link end, compile time: 1375 ms, link time: 122 ms, total time: 1497 ms
+q10 compile and link end, compile time: 1635 ms, link time: 110 ms, total time: 1745 ms
+q11 compile and link end, compile time: 888 ms, link time: 104 ms, total time: 992 ms
+q12 compile and link end, compile time: 731 ms, link time: 89 ms, total time: 820 ms
+q13 compile and link end, compile time: 797 ms, link time: 132 ms, total time: 929 ms
+File q14.cpp does not exist, skipping...
+File q15.cpp does not exist, skipping...
+File q16.cpp does not exist, skipping...
+q17 compile and link end, compile time: 693 ms, link time: 125 ms, total time: 818 ms
+File q18.cpp does not exist, skipping...
+q19 compile and link end, compile time: 738 ms, link time: 109 ms, total time: 847 ms
+File q20.cpp does not exist, skipping...
+q21 compile and link end, compile time: 1355 ms, link time: 92 ms, total time: 1447 ms
+File q22.cpp does not exist, skipping...
+Compilation by g++ complete.
