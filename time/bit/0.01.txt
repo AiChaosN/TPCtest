@@ -1,0 +1,20 @@
+Execution times:
+q1 q1_linked exe time: 1.111 ms
+q2 q2_linked exe time: 141.618 ms
+q3 q3_linked exe time: 0.211 ms
+q4 q4_linked exe time: 0.214 ms
+q5 q5_linked exe time: 0.857 ms
+q6 q6_linked exe time: 0.121 ms
+q7 q7_linked exe time: 7.881 ms
+q8 q8_linked exe time: 0.007 ms
+q9 q9_linked exe time: 0.412 ms
+q10 q10_linked exe time: 0.655 ms
+q11 q11_linked exe time: 0.018 ms
+q12 q12_linked exe time: 0.202 ms
+q13 q13_linked exe time: 0.075 ms
+q16 exe time: 0.057 ms
+q17 q17_linked exe time: 1.06 ms
+q18 exe time: 0.28 ms
+q19 q19_linked exe time: 0.759 ms
+q20 exe time: 0.133 ms
+q21 q21_linked exe time: 0.102 ms
