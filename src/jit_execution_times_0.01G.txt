@@ -1,0 +1,23 @@
+Execution times:
+q1 exe time: 10.972 ms
+q2 
+q3 exe time: 2.076 ms
+q4 exe time: 1.938 ms
+q5 exe time: 12.655 ms
+q6 exe time: 1.069 ms
+q7 exe time: 1042.9 ms
+q8 exe time: 8.773 ms
+q9 exe time: 106.431 ms
+q10 exe time: 93.177 ms
+q11 exe time: 0.425 ms
+q12 exe time: 4.743 ms
+q13 exe time: 0.639 ms
+Bitcode file ../bitcode/q14_linked.bc not found, skipping...
+Bitcode file ../bitcode/q15_linked.bc not found, skipping...
+Bitcode file ../bitcode/q16_linked.bc not found, skipping...
+q17 exe time: 230.46 ms
+Bitcode file ../bitcode/q18_linked.bc not found, skipping...
+q19 exe time: 67.683 ms
+Bitcode file ../bitcode/q20_linked.bc not found, skipping...
+q21 exe time: 45.9 ms
+Bitcode file ../bitcode/q22_linked.bc not found, skipping...

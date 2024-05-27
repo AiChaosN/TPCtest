@@ -1,0 +1,1 @@
+query22:  Execution Time: 48.909 ms

@@ -1,0 +1,1 @@
+query21:  Execution Time: 79977.724 ms

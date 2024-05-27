@@ -1,0 +1,1 @@
+query19:  Execution Time: 1278.283 ms

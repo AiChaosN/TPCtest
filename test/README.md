@@ -49,6 +49,7 @@ sudo -u postgres psql -p 5432 -d tpch -f ./create_table.sql
 在data目录运行以下代码来进行正则替换：
 ```
 rm -rf tbl
+mkdir tbl
 for i in `ls *.tbl`
 do
  name="tbl/$i"

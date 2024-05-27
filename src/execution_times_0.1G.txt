@@ -1,0 +1,23 @@
+Execution times:
+../bin/q1 0.1G exe time: 121.588 ms
+../bin/q2 0.1G 
+../bin/q3 0.1G exe time: 43.403 ms
+../bin/q4 0.1G exe time: 19.247 ms
+../bin/q5 0.1G exe time: 124.143 ms
+../bin/q6 0.1G exe time: 11.803 ms
+../bin/q7 0.1G 
+../bin/q8 0.1G exe time: 1674.47 ms
+../bin/q9 0.1G exe time: 17129 ms
+../bin/q10 0.1G 
+../bin/q11 0.1G exe time: 40.634 ms
+../bin/q12 0.1G exe time: 1027.59 ms
+../bin/q13 0.1G exe time: 7.161 ms
+../bin/q14 is not executable or does not exist, skipping...
+../bin/q15 is not executable or does not exist, skipping...
+../bin/q16 is not executable or does not exist, skipping...
+../bin/q17 0.1G 
+../bin/q18 is not executable or does not exist, skipping...
+../bin/q19 0.1G exe time: 17336.2 ms
+../bin/q20 is not executable or does not exist, skipping...
+../bin/q21 0.1G exe time: 9731.49 ms
+../bin/q22 is not executable or does not exist, skipping...

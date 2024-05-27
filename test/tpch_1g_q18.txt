@@ -1,0 +1,1 @@
+query18:  Execution Time: 4117.048 ms
